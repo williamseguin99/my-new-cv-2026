@@ -1,0 +1,6 @@
+# Languages
+
+- **Français**: Native or bilingual proficiency
+- **Italien**: Native or bilingual proficiency
+- **Anglais**: Full professional proficiency
+- **Espagnol**: Full professional proficiency

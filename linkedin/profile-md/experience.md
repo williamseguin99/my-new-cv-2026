@@ -1,0 +1,64 @@
+# Experience
+
+## Humanise Collective
+**Assistant Financial Controller** | May 2025 - Present | Montreal, Quebec, Canada
+
+- About the company | Humanise is a collective of 8 well
+- established agencies in the marketing communications industry. Our mission is to do the best work humanly possible within a creative, collaborative, and internationally minded ecosystem.  My Role | Right hand to the financial management team, supervising operations for a multi
+- entity group. My mandate combines rigorous management of the full accounting cycle, analysis of consolidated financial performance, and technological optimization of internal processes. I act as a key point of contact to support operational managers and ensure the reliability of financial information.  Key Responsibilities:
+- Analysis & Reporting: Production of consolidated monthly financial results, preparation of month
+- end entries, and explanation of budget variances.
+- Operational Management: Supervision of Accounts Payable and Receivable (AP/AR), treasury management (credit cards), inter
+- company billing, and fee invoicing.
+- Process Optimization (IT): Automation of reports and enhancement of management tools through advanced use of PowerQuery and Google Scripts/Macros.
+- Compliance & Audit: Implementation of internal control procedures and preparation of year
+- end audit files.
+- Strategic Support: Active participation in the budget process and support to the finance team on ad
+- hoc analyses.  Technical Environment: NetSuite, Microsoft Excel (PowerQuery), Google Suite (Scripts/Macros).
+
+---
+
+## Signé Local - Vitrine du fait au Québec
+**Chief Accountant** | Sep 2023 - May 2025 | Montréal, Québec, Canada
+
+- About the company | Our mission is to introduce the general public to the excellence and diversity of Quebec creations, while supporting ethical and sustainable consumption. By favoring local supply chains, we actively contribute to reducing our environmental footprint and boosting the economy of our beautiful province.  My role | Contribute to the smooth operation of 4 physical stores and an eCommerce platform. Regular monitoring of inventory, financial forecasting, and efforts to maintain operational efficiency and support strategic growth. Ensure proper handling and reconciliation of funds.
+
+---
+
+## Belvoir
+**Financial Controller** | Apr 2023 - May 2025
+
+- About | Belvoir combines private hospitality and event planning to preserve and promote Quebec's heritage. Its historic mansions are places of encounter and celebration where history comes to life.  My role | Daily bookkeeping tasks, recording of financial transactions and reconciliation. Budgeting and forecasting processes, financial projections to support company growth. Tax planning efforts, identifying opportunities for tax savings and ensuring compliance with local regulations.
+
+---
+
+## RMW Séguin Conseil
+**Consultant** | May 2022 - May 2025 | Geneva, Switzerland
+
+- RMW Séguin Conseil was founded in order to sell IT solutions. In the long term, we plan to offer IT solutions for the metaverse. More information coming soon.
+
+---
+
+## Elections Canada
+**Central poll supervisor** | Oct 2018 - Mar 2025 | Montreal, Quebec, Canada
+
+- The goal is to ensure that everyone who wants to vote can do it. A fundamental role of this position is to ensure the confidentiality of the vote, a fundamental pillar of our democracy. It is also necessary to allow the counting of the ballots to be carried out in accordance with the practices established by the electoral law. Appointed to the position of supervisor after having proven myself as a clerk and deputy returning officer, I led and coordinated a team of 8 people during the federal elections of September 2021 and, again, in the provincial elections of October
+- One of the things I learned is that, in order to lead a team well, you certainly have to be a good communicator, but you also need to have a real understanding of the positions you're supervising. Very formative experiences. It certainly is a civic duty, but it's also an excellent opportunity to grow. It allowed me to work on my leadership skills, professionalism, and impartiality in a strict and formal context. Then, if it's true that we must remain vigilant throughout the day, it is really in the last hours that concentration is needed the most. Indeed, with long days ranging from 7 a.m. until, sometimes, midnight (following counts which perhaps "do not balance", as we often hear in the jargon), we are required to show resilience.
+
+---
+
+## Costco Wholesale
+**Customer Service & Sales** | Apr 2020 - Aug 2020 | Montréal, Québec, Canada
+
+- Driven by a strong work ethic, I took the opportunity to join Costco in response to their increased staffing needs during the COVID
+- 19 crisis. This experience allowed me to contribute to essential services while enhancing my sales and customer service skills.  With a background in fundraising, I quickly stood out in Costco’s fast
+- paced environment. While all cashiers were expected to contribute to sales, my performance was recognized, and I was repeatedly selected to promote the Costco credit card and drive new memberships instead of handling packaging. My efforts led to my name being featured on the "Membership" department’s Top Employees board.
+
+---
+
+## Public Outreach Fundraising
+**Fundraiser** | Jan 2018 - May 2020 | Montréal et périphérie
+
+- door experience allowed me to develop key communication and persuasion skills, essential both in sales and client interactions: positive energy, a welcoming smile, enthusiasm, and the ability to quickly build trust.  My role was to rally as many people as possible around a specific cause (which changed on a regular basis) by persuading them to make recurring donations. This required even more expertise and charisma than traditional sales, as potential donors receive nothing in return.  Organizations Represented: ✅ Doctors Without Borders ✅ Greenpeace ✅ UNICEF ✅ Amnesty International ✅ CARE  Representing some of the world’s leading NGOs has profoundly shaped my understanding of global issues and strengthened my sense of altruism. This experience taught me the value of commitment and helped me cultivate deep gratitude for life.
+
+---

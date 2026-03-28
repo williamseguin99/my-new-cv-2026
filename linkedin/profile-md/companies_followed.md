@@ -1,0 +1,22 @@
+# Companies Followed
+
+- McKinsey & Company
+- Robert Half
+- YPulse
+- GSM Studios
+- Bleublancrouge
+- Plazio
+- Stripe
+- Humanise Collective
+- HB Fisc
+- Belvoir
+- The World Network Group
+- GenAI Works
+- Industrial Code
+- Signé Local - Vitrine du fait au Québec
+- Housing Hawk
+- Zyta Ventures
+- Altamesa Energy Canada
+- Italian Property Finder
+- PragerU
+- London Real
