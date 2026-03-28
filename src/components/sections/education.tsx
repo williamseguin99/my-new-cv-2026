@@ -36,7 +36,8 @@ const SCHOOLS: School[] = [
     institution: "Universidad Carlos III de Madrid",
     credential: "Student Exchange Program",
     dates: "Jan 2022 – Jul 2022",
-    logo: "/uqam-icon.jpg",
+    logo: "/uc3m-icon.png",
+    image: "/uc3m-image.webp",
     notes: "Semester exchange — Madrid, Spain.",
   },
   {
