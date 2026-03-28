@@ -63,7 +63,7 @@ export function Education() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {SCHOOLS.map((school, i) => (
             <FadeInCard key={school.institution} delay={i * 0.07}>
-              <div className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 h-full">
+              <div className="group bg-base/5 border border-base/15 rounded-2xl overflow-hidden hover:border-accent/50 hover:bg-base/8 transition-all duration-300 h-full">
                 {school.image && (
                   <div className="relative w-full h-36 overflow-hidden">
                     <Image
@@ -78,7 +78,7 @@ export function Education() {
                 )}
                 <div className="p-5 flex flex-col gap-3">
                   <div className="flex items-start gap-3">
-                    <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-border flex-shrink-0 mt-0.5 bg-white">
+                    <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-base/20 flex-shrink-0 mt-0.5 bg-base/10">
                       <Image
                         src={school.logo}
                         alt={`${school.institution} logo`}
@@ -88,13 +88,13 @@ export function Education() {
                       />
                     </div>
                     <div>
-                      <h3 className="font-bold text-foreground leading-tight">{school.institution}</h3>
-                      <p className="text-sm text-muted-foreground mt-0.5">{school.credential}</p>
+                      <h3 className="font-bold text-base leading-tight">{school.institution}</h3>
+                      <p className="text-sm text-base/70 mt-0.5">{school.credential}</p>
                       <p className="text-xs text-accent mt-1">{school.dates}</p>
                     </div>
                   </div>
                   {school.notes && (
-                    <p className="text-sm text-muted-foreground leading-relaxed">{school.notes}</p>
+                    <p className="text-sm text-base/60 leading-relaxed">{school.notes}</p>
                   )}
                   {school.highlight && (
                     <div className="inline-flex items-center gap-1.5 bg-accent/20 border border-accent/40 rounded-full px-3 py-1 text-xs font-bold text-accent self-start">

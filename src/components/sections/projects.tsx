@@ -9,6 +9,7 @@ interface Project {
   url?: string;
   image: string;
   icon?: string;
+  imageAlign?: "top" | "center" | "bottom";
   tags: string[];
   cta: string;
 }
@@ -21,6 +22,7 @@ const PROJECTS: Project[] = [
     url: "https://www.qcheck.ca",
     image: "/q-check-image.png",
     icon: "/q-check-icon.png",
+    imageAlign: "top",
     tags: ["FinTech", "SaaS", "Hospitality", "Entrepreneurship"],
     cta: "Visit qcheck.ca",
   },
@@ -76,7 +78,7 @@ export function Projects() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`object-cover group-hover:scale-105 transition-transform duration-500 ${project.imageAlign === "top" ? "object-top" : project.imageAlign === "bottom" ? "object-bottom" : "object-center"}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                 </div>
