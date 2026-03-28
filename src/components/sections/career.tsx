@@ -132,7 +132,7 @@ export function Career() {
                   {/* Right: Content */}
                   <div className="flex-1 p-6 flex flex-col gap-3">
                     <div className="flex items-start gap-3">
-                      <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-border flex-shrink-0 mt-0.5">
+                      <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-border flex-shrink-0 mt-0.5 bg-white">
                         <Image
                           src={role.logo}
                           alt={`${role.company} logo`}

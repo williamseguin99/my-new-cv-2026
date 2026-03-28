@@ -62,7 +62,7 @@ export function Hero() {
               variants={item}
               className="text-xl md:text-2xl font-normal text-base/80 leading-relaxed border-l-4 border-accent pl-5 italic max-w-xl"
             >
-              &ldquo;I&apos;m a CPA-track digital creator with a passion for numbers and
+              &ldquo;I&apos;m a CPA & digital creator with a passion for numbers and
               operational efficiency.&rdquo;
             </motion.blockquote>
 

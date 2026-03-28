@@ -24,22 +24,27 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.williamseguin.com"),
   title: "William Séguin | CPA & Assistant Financial Controller",
   description:
-    "CPA-track accountant and digital creator combining financial clarity with operational innovation. See William Séguin's full CV and entrepreneurial journey.",
+    "CPA accountant and digital creator combining financial clarity with operational innovation. See William Séguin's full CV and entrepreneurial journey.",
   openGraph: {
     type: "website",
     title: "William Séguin | CPA & Assistant Financial Controller",
     description:
-      "CPA-track accountant and digital creator building people-first systems. Explore William's background, experience, and projects.",
+      "CPA accountant and digital creator building people-first systems. Explore William's background, experience, and projects.",
     url: "https://www.williamseguin.com/",
     siteName: "William Séguin",
     images: [{ url: "/images/William_OG.jpg" }],
+    locale: "en_CA",
   },
   twitter: {
     card: "summary_large_image",
     title: "William Séguin | CPA & Assistant Financial Controller",
     description:
-      "CPA-track accountant and digital creator building people-first systems.",
+      "CPA accountant and digital creator building people-first systems.",
     images: ["/images/William_headshot.jpg"],
+    site: "https://www.williamseguin.com/",
+  },
+  appleWebApp: {
+    title: "Will's CV",
   },
 };
 

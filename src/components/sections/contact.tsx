@@ -75,7 +75,7 @@ export function Contact() {
   };
 
   const inputBase =
-    "w-full bg-base/5 border border-base/20 rounded-xl px-4 py-3 text-base text-base placeholder:text-base/40 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 text-sm";
+    "w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 text-sm";
 
   return (
     <section id="contact" className="section-padding bg-background">
@@ -196,11 +196,11 @@ export function Contact() {
             <div className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-4">
               <h3 className="font-bold text-foreground">Direct Contact</h3>
               <a
-                href="mailto:wilsonseguin@icloud.com?subject=Hello%20William"
+                href="mailto:hello@williamseguin.com?subject=Hello%20William"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-accent transition-colors duration-200 group"
               >
-                <span className="text-accent text-lg">✉</span>
-                <span className="group-hover:underline">wilsonseguin@icloud.com</span>
+                <span className="text-lg">📧</span>
+                <span className="group-hover:underline">hello@williamseguin.com</span>
               </a>
               <a
                 href="tel:+14388386087"

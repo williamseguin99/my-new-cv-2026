@@ -41,8 +41,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "hello@williamseguin.com",
-      to: "hello@williamseguin.com",
+      from: "William Séguin <hello@williamseguin.com>",
+      to: ["hello@williamseguin.com"],
       replyTo: email,
       subject: `[williamseguin.com] ${subject}`,
       html: `
@@ -75,13 +75,17 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json({ success: false, error: "Failed to send email. Please try again." }, { status: 500 });
+      console.error("[contact] Resend API error:", JSON.stringify(error, null, 2));
+      return NextResponse.json(
+        { success: false, error: "Failed to send email. Please try again." },
+        { status: 500 },
+      );
     }
 
+    console.log("[contact] Email sent successfully. ID:", data?.id);
     return NextResponse.json({ success: true, id: data?.id });
   } catch (err) {
-    console.error("Contact API error:", err);
+    console.error("[contact] Unexpected error:", err instanceof Error ? err.message : err);
     return NextResponse.json({ success: false, error: "Internal server error." }, { status: 500 });
   }
 }
