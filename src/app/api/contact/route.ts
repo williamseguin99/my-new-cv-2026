@@ -40,50 +40,75 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { data, error } = await resend.emails.send({
-      from: "William Séguin <hello@williamseguin.com>",
-      to: ["hello@williamseguin.com"],
-      replyTo: email,
-      subject: `[williamseguin.com] ${subject}`,
-      html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-          <h2 style="color: #5e0b15; border-bottom: 2px solid #ffba7a; padding-bottom: 12px;">
-            New message from williamseguin.com
-          </h2>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-            <tr>
-              <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold; width: 120px; border-radius: 4px 0 0 4px;">From</td>
-              <td style="padding: 8px 12px; background: #faf8f8;">${name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold;">Email</td>
-              <td style="padding: 8px 12px; background: #faf8f8;"><a href="mailto:${email}" style="color: #5e0b15;">${email}</a></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold;">Subject</td>
-              <td style="padding: 8px 12px; background: #faf8f8;">${subject}</td>
-            </tr>
-          </table>
-          <div style="margin-top: 20px; padding: 16px; background: #f5f0f0; border-left: 4px solid #ffba7a; border-radius: 4px;">
-            <p style="margin: 0; white-space: pre-wrap; color: #333;">${message}</p>
+    const [notification, confirmation] = await Promise.all([
+      resend.emails.send({
+        from: "William Séguin <hello@williamseguin.com>",
+        to: ["hello@williamseguin.com"],
+        replyTo: email,
+        subject: `[williamseguin.com] ${subject}`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
+            <h2 style="color: #5e0b15; border-bottom: 2px solid #ffba7a; padding-bottom: 12px;">
+              New message from williamseguin.com
+            </h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+              <tr>
+                <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold; width: 120px; border-radius: 4px 0 0 4px;">From</td>
+                <td style="padding: 8px 12px; background: #faf8f8;">${name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold;">Email</td>
+                <td style="padding: 8px 12px; background: #faf8f8;"><a href="mailto:${email}" style="color: #5e0b15;">${email}</a></td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 12px; background: #f5f0f0; font-weight: bold;">Subject</td>
+                <td style="padding: 8px 12px; background: #faf8f8;">${subject}</td>
+              </tr>
+            </table>
+            <div style="margin-top: 20px; padding: 16px; background: #f5f0f0; border-left: 4px solid #ffba7a; border-radius: 4px;">
+              <p style="margin: 0; white-space: pre-wrap; color: #333;">${message}</p>
+            </div>
+            <p style="margin-top: 24px; font-size: 12px; color: #999;">
+              Sent via williamseguin.com contact form. Reply-To is set to the sender's address.
+            </p>
           </div>
-          <p style="margin-top: 24px; font-size: 12px; color: #999;">
-            Sent via williamseguin.com contact form. Reply-To is set to the sender's address.
-          </p>
-        </div>
-      `,
-    });
+        `,
+      }),
+      resend.emails.send({
+        from: "William Séguin <hello@williamseguin.com>",
+        to: [email],
+        subject: "Thanks for reaching out",
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #333;">
+            <p>Hi ${name},</p>
+            <p>
+              Thank you for getting in touch. I've received your message and will get back to you
+              as soon as possible.
+            </p>
+            <p>Talk soon,</p>
+            <p style="margin: 0;"><strong>William Seguin</strong></p>
+            <p style="margin: 4px 0 0; font-size: 13px; color: #888;">
+              <a href="https://williamseguin.com" style="color: #5e0b15; text-decoration: none;">williamseguin.com</a>
+            </p>
+          </div>
+        `,
+      }),
+    ]);
 
-    if (error) {
-      console.error("[contact] Resend API error:", JSON.stringify(error, null, 2));
+    if (notification.error) {
+      console.error("[contact] Resend API error:", JSON.stringify(notification.error, null, 2));
       return NextResponse.json(
         { success: false, error: "Failed to send email. Please try again." },
         { status: 500 },
       );
     }
 
-    console.log("[contact] Email sent successfully. ID:", data?.id);
-    return NextResponse.json({ success: true, id: data?.id });
+    if (confirmation.error) {
+      console.warn("[contact] Confirmation email failed:", JSON.stringify(confirmation.error, null, 2));
+    }
+
+    console.log("[contact] Email sent successfully. ID:", notification.data?.id);
+    return NextResponse.json({ success: true, id: notification.data?.id });
   } catch (err) {
     console.error("[contact] Unexpected error:", err instanceof Error ? err.message : err);
     return NextResponse.json({ success: false, error: "Internal server error." }, { status: 500 });
