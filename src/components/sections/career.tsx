@@ -57,7 +57,7 @@ const ROLES: Role[] = [
     company: "Renovco",
     dates: "Sep 2022 – Apr 2023",
     url: "https://www.renovco.com",
-    logo: "/renovco-logo.png",
+    logo: "/renovco-logo2.png",
     image: "/renovco-image.jpg",
     bullets: [
       "Project-based accounting support for restoration and renovation initiatives.",
