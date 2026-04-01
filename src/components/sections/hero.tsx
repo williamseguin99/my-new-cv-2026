@@ -1,29 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-function PdfIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-      <line x1="12" y1="11" x2="12" y2="17" />
-      <polyline points="9 14 12 17 15 14" />
-    </svg>
-  );
-}
+const DownloadResumeButton = dynamic(
+  () =>
+    import("@/components/pdf/DownloadResumeButton").then(
+      (m) => m.DownloadResumeButton
+    ),
+  { ssr: false }
+);
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -121,14 +108,7 @@ export function Hero() {
               >
                 See My Work
               </a>
-              <button
-                type="button"
-                aria-label="Download PDF résumé"
-                onClick={() => window.print()}
-                className="print:hidden h-12 w-12 rounded-full flex items-center justify-center border border-base/30 text-base hover:bg-base/10 hover:border-accent hover:text-accent transition-all duration-200"
-              >
-                <PdfIcon />
-              </button>
+              <DownloadResumeButton />
             </motion.div>
           </motion.div>
 

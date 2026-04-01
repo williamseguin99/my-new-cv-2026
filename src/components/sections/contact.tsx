@@ -48,7 +48,7 @@ export function Contact() {
     "w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200 text-sm";
 
   return (
-    <section id="contact" className="section-padding bg-background print:hidden">
+    <section id="contact" className="section-padding bg-background">
       <div className="content-max">
         <FadeInSection>
           <p className="section-label">Get in Touch</p>

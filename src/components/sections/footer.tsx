@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="bg-contrast text-base py-8 px-6 border-t border-base/15 print:hidden">
+    <footer className="bg-contrast text-base py-8 px-6 border-t border-base/15">
       <div className="content-max flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-base/50">
           © {new Date().getFullYear()} William Séguin. All rights reserved.

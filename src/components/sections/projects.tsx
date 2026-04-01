@@ -60,7 +60,7 @@ function ExternalIcon() {
 
 export function Projects() {
   return (
-    <section id="projects" className="section-padding bg-background print:hidden">
+    <section id="projects" className="section-padding bg-background">
       <div className="content-max">
         <FadeInSection>
           <p className="section-label">Ventures</p>
