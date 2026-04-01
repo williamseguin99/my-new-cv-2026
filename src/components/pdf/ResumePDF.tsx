@@ -342,7 +342,7 @@ const EXPERIENCE = [
     title: "Assistant Financial Controller",
     company: "Humanise Collective",
     dates: "May 2025 - Present",
-    url: undefined as string | undefined,
+    url: "https://www.humanise.world/",
     bullets: [
       "Right hand to financial management for an 8-agency marketing communications group.",
       "Full accounting cycle, consolidated reporting, process automation via NetSuite, PowerQuery, and Google Scripts.",
@@ -380,7 +380,7 @@ const EXPERIENCE = [
     title: "Central Poll Supervisor",
     company: "Elections Canada",
     dates: "Oct 2018 - Ongoing",
-    url: undefined as string | undefined,
+    url: "https://www.elections.ca/",
     bullets: [
       "Leads teams of 8 as polling supervisor for federal and provincial elections.",
       "Appointed supervisor after proving as clerk and Deputy Returning Officer.",
@@ -390,7 +390,7 @@ const EXPERIENCE = [
     title: "Customer Service & Sales",
     company: "Costco Wholesale",
     dates: "Apr 2020 - Aug 2020",
-    url: undefined as string | undefined,
+    url: "https://www.costco.ca/",
     bullets: [
       "Featured on Membership dept. Top Employees board for credit card and membership conversion performance.",
     ],
@@ -548,12 +548,6 @@ function LeftColumn() {
         <Text style={S.achievementBody}>
           {"International French-language poetry competition (Nov 2016), French Ministry of Education. 100,000+ entries from ages 15-25 across all countries."}
         </Text>
-        <Link
-          src="https://www.poesie-en-liberte.fr/funerailles-de-lhomme-moderne/"
-          style={{ ...S.contactLink, fontSize: 7, marginTop: 1 }}
-        >
-          {"Read the poem ->"}
-        </Link>
       </View>
       <View style={S.achievementEntry}>
         <Text style={S.achievementTitle}>
