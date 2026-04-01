@@ -8,7 +8,14 @@ import {
   Font,
 } from "@react-pdf/renderer";
 
-// Use built-in Helvetica — no registration needed
+// Register custom site fonts from /public/fonts/
+Font.register({
+  family: "AttenRoundNew",
+  fonts: [
+    { src: "/fonts/AttenRoundNewRegular.otf", fontWeight: 400 },
+    { src: "/fonts/AttenRoundNewBold.otf", fontWeight: 700 },
+  ],
+});
 Font.registerHyphenationCallback((word) => [word]);
 
 const C = {
@@ -24,7 +31,8 @@ const C = {
 const S = StyleSheet.create({
   page: {
     backgroundColor: C.white,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     paddingTop: 36,
     paddingBottom: 36,
     paddingLeft: 36,
@@ -53,7 +61,8 @@ const S = StyleSheet.create({
   // ── Name / title block ───────────────────────────────────
   name: {
     fontSize: 22,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.primary,
     lineHeight: 1.1,
     marginBottom: 2,
@@ -68,7 +77,8 @@ const S = StyleSheet.create({
   // ── Section heading ───────────────────────────────────────
   sectionHeading: {
     fontSize: 7,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.primary,
     textTransform: "uppercase",
     letterSpacing: 1.2,
@@ -90,21 +100,24 @@ const S = StyleSheet.create({
   },
   contactLabel: {
     fontSize: 7,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.muted,
     width: 14,
     paddingTop: 0.5,
   },
   contactValue: {
     fontSize: 8,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.body,
     flex: 1,
     lineHeight: 1.3,
   },
   contactLink: {
     fontSize: 8,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.primary,
     textDecoration: "none",
     flex: 1,
@@ -117,23 +130,29 @@ const S = StyleSheet.create({
   },
   eduInstitution: {
     fontSize: 8,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.body,
     lineHeight: 1.3,
   },
   eduCredential: {
     fontSize: 7.5,
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.muted,
     lineHeight: 1.3,
   },
   eduDate: {
     fontSize: 7,
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.accent,
     marginTop: 1,
   },
   eduNote: {
     fontSize: 7,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.light,
     marginTop: 1,
     lineHeight: 1.3,
@@ -145,7 +164,8 @@ const S = StyleSheet.create({
   },
   skillGroupLabel: {
     fontSize: 7,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.muted,
     textTransform: "uppercase",
     letterSpacing: 0.5,
@@ -153,7 +173,8 @@ const S = StyleSheet.create({
   },
   skillGroupBody: {
     fontSize: 7.5,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.body,
     lineHeight: 1.4,
   },
@@ -164,13 +185,15 @@ const S = StyleSheet.create({
   },
   achievementTitle: {
     fontSize: 8,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.body,
     lineHeight: 1.3,
   },
   achievementBody: {
     fontSize: 7,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.muted,
     lineHeight: 1.4,
     marginTop: 1,
@@ -186,13 +209,15 @@ const S = StyleSheet.create({
   },
   summaryText: {
     fontSize: 9,
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.body,
     lineHeight: 1.55,
-    fontFamily: "Helvetica-Oblique",
   },
   summarySubText: {
     fontSize: 8,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.muted,
     lineHeight: 1.5,
     marginTop: 4,
@@ -207,7 +232,8 @@ const S = StyleSheet.create({
   },
   langPill: {
     fontSize: 7,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.primary,
     borderWidth: 0.5,
     borderColor: C.accent,
@@ -228,18 +254,22 @@ const S = StyleSheet.create({
   },
   expTitle: {
     fontSize: 9,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.body,
     flex: 1,
   },
   expDate: {
     fontSize: 7.5,
+    fontFamily: "AttenRoundNew",
+    fontWeight: 700,
     color: C.accent,
     textAlign: "right",
-    fontFamily: "Helvetica-Bold",
   },
   expCompany: {
     fontSize: 8,
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.primary,
     marginBottom: 3,
   },
@@ -256,7 +286,8 @@ const S = StyleSheet.create({
   },
   bulletText: {
     fontSize: 7.5,
-    fontFamily: "Helvetica",
+    fontFamily: "AttenRoundNew",
+    fontWeight: 400,
     color: C.muted,
     lineHeight: 1.4,
     flex: 1,
