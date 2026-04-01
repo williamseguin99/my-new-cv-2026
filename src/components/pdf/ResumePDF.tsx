@@ -8,16 +8,47 @@ import {
   Font,
 } from "@react-pdf/renderer";
 
-// Register custom site fonts from /public/fonts/
-Font.register({
-  family: "AttenRoundNew",
-  fonts: [
-    { src: "/fonts/AttenRoundNewRegular.otf", fontWeight: 400 },
-    { src: "/fonts/AttenRoundNewBold.otf", fontWeight: 700 },
-  ],
-});
+// ─── Font registration ─────────────────────────────────────────────────────
+// This module is only loaded client-side (ssr: false on the dynamic import),
+// so window is always defined here. We build an absolute URL so @react-pdf/renderer
+// can fetch the OTF files over HTTP. Falls back to built-in Helvetica if the
+// fetch fails (e.g. dev server not yet started / file not found).
+let FONT_FAMILY = "Helvetica";
+let FONT_BOLD = "Helvetica-Bold";
+
+if (typeof window !== "undefined") {
+  try {
+    const base = window.location.origin;
+    Font.register({
+      family: "AttenRoundNew",
+      fonts: [
+        { src: `${base}/fonts/AttenRoundNewRegular.otf`, fontWeight: 400 },
+        { src: `${base}/fonts/AttenRoundNewBold.otf`, fontWeight: 700 },
+      ],
+    });
+    FONT_FAMILY = "AttenRoundNew";
+    FONT_BOLD = "AttenRoundNew";
+  } catch {
+    // Fallback to built-in Helvetica — PDF still renders cleanly
+  }
+}
+
 Font.registerHyphenationCallback((word) => [word]);
 
+// ─── Emoji sanitizer ──────────────────────────────────────────────────────
+// Strips emoji/pictograph code points that PDFKit cannot render.
+// Bullet-style emojis are replaced with the PDF-safe • character.
+const ALL_EMOJI_RE =
+  /[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE00}-\u{FEFF}\u{E0000}-\u{E01FF}]/gu;
+
+function sanitize(str: string): string {
+  return str
+    .replace(ALL_EMOJI_RE, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+// ─── Color tokens ─────────────────────────────────────────────────────────
 const C = {
   primary: "#5e0b15",
   accent: "#ffba7a",
@@ -28,10 +59,11 @@ const C = {
   divider: "#e0e0e0",
 } as const;
 
+// ─── Styles ───────────────────────────────────────────────────────────────
 const S = StyleSheet.create({
   page: {
     backgroundColor: C.white,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     paddingTop: 36,
     paddingBottom: 36,
@@ -41,7 +73,7 @@ const S = StyleSheet.create({
     color: C.body,
   },
 
-  // ── Two-column layout ────────────────────────────────────
+  // ── Two-column layout ──────────────────────────────────────────────────
   columns: {
     flexDirection: "row",
     gap: 18,
@@ -58,10 +90,10 @@ const S = StyleSheet.create({
     gap: 0,
   },
 
-  // ── Name / title block ───────────────────────────────────
+  // ── Name / title block ─────────────────────────────────────────────────
   name: {
     fontSize: 22,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.primary,
     lineHeight: 1.1,
@@ -69,15 +101,17 @@ const S = StyleSheet.create({
   },
   headline: {
     fontSize: 9,
+    fontFamily: FONT_FAMILY,
+    fontWeight: 400,
     color: C.muted,
     marginBottom: 10,
     letterSpacing: 0.3,
   },
 
-  // ── Section heading ───────────────────────────────────────
+  // ── Section heading ────────────────────────────────────────────────────
   sectionHeading: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.primary,
     textTransform: "uppercase",
@@ -91,7 +125,7 @@ const S = StyleSheet.create({
     marginBottom: 6,
   },
 
-  // ── Contact ───────────────────────────────────────────────
+  // ── Contact ────────────────────────────────────────────────────────────
   contactRow: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -99,8 +133,8 @@ const S = StyleSheet.create({
     gap: 4,
   },
   contactLabel: {
-    fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontSize: 8,
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.muted,
     width: 14,
@@ -108,7 +142,7 @@ const S = StyleSheet.create({
   },
   contactValue: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.body,
     flex: 1,
@@ -116,7 +150,7 @@ const S = StyleSheet.create({
   },
   contactLink: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.primary,
     textDecoration: "none",
@@ -124,47 +158,47 @@ const S = StyleSheet.create({
     lineHeight: 1.3,
   },
 
-  // ── Education ─────────────────────────────────────────────
+  // ── Education ──────────────────────────────────────────────────────────
   eduEntry: {
     marginBottom: 8,
   },
   eduInstitution: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.body,
     lineHeight: 1.3,
   },
   eduCredential: {
     fontSize: 7.5,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.muted,
     lineHeight: 1.3,
   },
   eduDate: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.accent,
     marginTop: 1,
   },
   eduNote: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.light,
     marginTop: 1,
     lineHeight: 1.3,
   },
 
-  // ── Skills ────────────────────────────────────────────────
+  // ── Skills ─────────────────────────────────────────────────────────────
   skillGroup: {
     marginBottom: 5,
   },
   skillGroupLabel: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.muted,
     textTransform: "uppercase",
@@ -173,33 +207,33 @@ const S = StyleSheet.create({
   },
   skillGroupBody: {
     fontSize: 7.5,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.body,
     lineHeight: 1.4,
   },
 
-  // ── Achievements ─────────────────────────────────────────
+  // ── Achievements ───────────────────────────────────────────────────────
   achievementEntry: {
     marginBottom: 14,
   },
   achievementTitle: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.body,
     lineHeight: 1.3,
   },
   achievementBody: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.muted,
     lineHeight: 1.4,
     marginTop: 1,
   },
 
-  // ── Summary ──────────────────────────────────────────────
+  // ── Summary ────────────────────────────────────────────────────────────
   summaryBox: {
     borderLeftWidth: 2.5,
     borderLeftColor: C.accent,
@@ -209,21 +243,21 @@ const S = StyleSheet.create({
   },
   summaryText: {
     fontSize: 9,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.body,
     lineHeight: 1.55,
   },
   summarySubText: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.muted,
     lineHeight: 1.5,
     marginTop: 4,
   },
 
-  // ── Language flags row ────────────────────────────────────
+  // ── Language pills ─────────────────────────────────────────────────────
   langRow: {
     flexDirection: "row",
     gap: 6,
@@ -232,7 +266,7 @@ const S = StyleSheet.create({
   },
   langPill: {
     fontSize: 7,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.primary,
     borderWidth: 0.5,
@@ -242,7 +276,7 @@ const S = StyleSheet.create({
     paddingVertical: 1.5,
   },
 
-  // ── Experience entries ───────────────────────────────────
+  // ── Experience entries ─────────────────────────────────────────────────
   expEntry: {
     marginBottom: 9,
   },
@@ -254,21 +288,21 @@ const S = StyleSheet.create({
   },
   expTitle: {
     fontSize: 9,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.body,
     flex: 1,
   },
   expDate: {
     fontSize: 7.5,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_BOLD,
     fontWeight: 700,
     color: C.accent,
     textAlign: "right",
   },
   expCompany: {
     fontSize: 8,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.primary,
     marginBottom: 3,
@@ -280,13 +314,15 @@ const S = StyleSheet.create({
   },
   bulletDot: {
     fontSize: 7.5,
+    fontFamily: FONT_FAMILY,
+    fontWeight: 400,
     color: C.accent,
     paddingTop: 1,
     width: 6,
   },
   bulletText: {
     fontSize: 7.5,
-    fontFamily: "AttenRoundNew",
+    fontFamily: FONT_FAMILY,
     fontWeight: 400,
     color: C.muted,
     lineHeight: 1.4,
@@ -299,13 +335,13 @@ const S = StyleSheet.create({
   },
 });
 
-// ─── Data ──────────────────────────────────────────────────────────────────
+// ─── Data ─────────────────────────────────────────────────────────────────
 
 const EXPERIENCE = [
   {
     title: "Assistant Financial Controller",
     company: "Humanise Collective",
-    dates: "May 2025 – Present",
+    dates: "May 2025 - Present",
     url: undefined as string | undefined,
     bullets: [
       "Right hand to financial management for an 8-agency marketing communications group.",
@@ -314,8 +350,8 @@ const EXPERIENCE = [
   },
   {
     title: "Chief Accountant",
-    company: "Signé Local",
-    dates: "Sep 2023 – May 2025",
+    company: "Signe Local",
+    dates: "Sep 2023 - May 2025",
     url: "https://www.signelocal.com",
     bullets: [
       "Financial oversight for 4 physical stores and eCommerce platform.",
@@ -325,7 +361,7 @@ const EXPERIENCE = [
   {
     title: "Financial Controller",
     company: "Le Belvoir",
-    dates: "Apr 2023 – May 2025",
+    dates: "Apr 2023 - May 2025",
     url: "https://www.manoirs.ca",
     bullets: [
       "Bookkeeping, reconciliation, budgeting, and tax planning for a heritage hospitality and event company.",
@@ -334,7 +370,7 @@ const EXPERIENCE = [
   {
     title: "Project Accountant",
     company: "Renovco",
-    dates: "Sep 2022 – Apr 2023",
+    dates: "Sep 2022 - Apr 2023",
     url: "https://www.renovco.com",
     bullets: [
       "Project-based accounting support; A/R + A/P cycles; budget alignment with project managers.",
@@ -343,7 +379,7 @@ const EXPERIENCE = [
   {
     title: "Central Poll Supervisor",
     company: "Elections Canada",
-    dates: "Oct 2018 – Ongoing",
+    dates: "Oct 2018 - Ongoing",
     url: undefined as string | undefined,
     bullets: [
       "Leads teams of 8 as polling supervisor for federal and provincial elections.",
@@ -353,7 +389,7 @@ const EXPERIENCE = [
   {
     title: "Customer Service & Sales",
     company: "Costco Wholesale",
-    dates: "Apr 2020 – Aug 2020",
+    dates: "Apr 2020 - Aug 2020",
     url: undefined as string | undefined,
     bullets: [
       "Featured on Membership dept. Top Employees board for credit card and membership conversion performance.",
@@ -362,7 +398,7 @@ const EXPERIENCE = [
   {
     title: "Fundraiser",
     company: "Public Outreach Fundraising",
-    dates: "Jan 2018 – May 2020",
+    dates: "Jan 2018 - May 2020",
     url: "https://www.publicoutreachgroup.com",
     bullets: [
       "Door-to-door recurring donation campaigns for Doctors Without Borders, Greenpeace, UNICEF, Amnesty International, and CARE.",
@@ -372,28 +408,28 @@ const EXPERIENCE = [
 
 const EDUCATION = [
   {
-    institution: "Université de Sherbrooke",
-    credential: "DESS — Specialized Graduate Diploma in Accounting",
-    dates: "Sep 2023 – Sep 2025",
+    institution: "Universite de Sherbrooke",
+    credential: "DESS - Specialized Graduate Diploma in Accounting",
+    dates: "Sep 2023 - Sep 2025",
     note: "CPA CFE preparation. Passed December 2025.",
   },
   {
-    institution: "HEC Montréal",
-    credential: "BBA — Bachelor of Business Administration",
-    dates: "Sep 2018 – Apr 2023",
+    institution: "HEC Montreal",
+    credential: "BBA - Bachelor of Business Administration",
+    dates: "Sep 2018 - Apr 2023",
     note: "Major: Accounting. Trilingual program (FR/EN/ES).",
   },
   {
     institution: "Universidad Carlos III de Madrid",
     credential: "Student Exchange",
-    dates: "Jan 2022 – Jul 2022",
-    note: "Semester exchange — Madrid, Spain.",
+    dates: "Jan 2022 - Jul 2022",
+    note: "Semester exchange - Madrid, Spain.",
   },
   {
     institution: "Jean Giono Intl. School of Turin",
-    credential: "Baccalauréat Scientifique",
-    dates: "2014 – 2017",
-    note: "Math spec. Grade: 18.67/20 (≈ 4.3 GPA). Trilingual (FR/EN/ES).",
+    credential: "Baccalaureat Scientifique",
+    dates: "2014 - 2017",
+    note: "Math spec. Grade: 18.67/20 (approx. 4.3 GPA). Trilingual (FR/EN/ES).",
   },
 ];
 
@@ -416,77 +452,81 @@ const SKILLS = [
   },
 ];
 
-// ─── Sub-components ─────────────────────────────────────────────────────────
+const LANGUAGES = ["French", "English", "Spanish", "Italian"];
+
+// ─── Sub-components ───────────────────────────────────────────────────────
 
 function SectionHeading({ label }: { label: string }) {
   return (
     <View>
-      <Text style={S.sectionHeading}>{label}</Text>
+      <Text style={S.sectionHeading}>{sanitize(label)}</Text>
       <View style={S.accentRule} />
     </View>
   );
 }
 
 function Bullet({ text }: { text: string }) {
-   return (
-     <View style={S.bulletRow}>
-       <Text style={S.bulletDot}>•</Text>
-       <Text style={S.bulletText}>{text}</Text>
-     </View>
-   );
- }
+  return (
+    <View style={S.bulletRow}>
+      <Text style={S.bulletDot}>{"\u2022"}</Text>
+      <Text style={S.bulletText}>{sanitize(text)}</Text>
+    </View>
+  );
+}
 
-// ─── Left Column ─────────────────────────────────────────────────────────────
+// ─── Left Column ──────────────────────────────────────────────────────────
 
 function LeftColumn() {
   return (
     <View style={S.leftCol}>
       {/* Name */}
-      <Text style={S.name}>William{"\n"}Séguin</Text>
-      <Text style={S.headline}>CPA · Assistant Financial Controller</Text>
+      <Text style={S.name}>{"William\nSeguin"}</Text>
+      <Text style={S.headline}>{"CPA · Assistant Financial Controller"}</Text>
 
       {/* Contact */}
       <SectionHeading label="Contact" />
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>✉</Text>
+        <Text style={S.contactLabel}>{"@"}</Text>
         <Link src="mailto:wilsonseguin@icloud.com" style={S.contactLink}>
-          wilsonseguin@icloud.com
+          {"wilsonseguin@icloud.com"}
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>☎</Text>
+        <Text style={S.contactLabel}>{"Tel"}</Text>
         <Link src="tel:+14388386087" style={S.contactLink}>
-          +1 (438) 838-6087
+          {"+1 (438) 838-6087"}
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>↗</Text>
+        <Text style={S.contactLabel}>{"Web"}</Text>
         <Link src="https://www.williamseguin.com" style={S.contactLink}>
-          williamseguin.com
+          {"williamseguin.com"}
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>in</Text>
+        <Text style={S.contactLabel}>{"in"}</Text>
         <Link
           src="https://www.linkedin.com/in/william-seguin-rmw"
           style={S.contactLink}
         >
-          william-seguin-rmw
+          {"william-seguin-rmw"}
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>»</Text>
-        <Text style={S.contactValue}>Montréal, QC</Text>
+        <Text style={S.contactLabel}>{"Loc"}</Text>
+        <Text style={S.contactValue}>{"Montreal, QC"}</Text>
       </View>
 
       {/* Education */}
       <SectionHeading label="Education" />
       {EDUCATION.map((edu) => (
         <View key={edu.institution} style={S.eduEntry}>
-          <Text style={S.eduInstitution}>{edu.institution}</Text>
-          <Text style={S.eduCredential}>{edu.credential}</Text>
-          <Text style={S.eduDate}>{edu.dates}</Text>
-          {edu.note ? <Text style={S.eduNote}>{edu.note}</Text> : null}
+          <Text style={S.eduInstitution}>{sanitize(edu.institution)}</Text>
+          <Text style={S.eduCredential}>{sanitize(edu.credential)}</Text>
+          <Text style={S.eduDate}>{sanitize(edu.dates)}</Text>
+          {edu.note ? (
+            <Text style={S.eduNote}>{sanitize(edu.note)}</Text>
+          ) : null}
         </View>
       ))}
 
@@ -494,8 +534,8 @@ function LeftColumn() {
       <SectionHeading label="Skills" />
       {SKILLS.map((sk) => (
         <View key={sk.label} style={S.skillGroup}>
-          <Text style={S.skillGroupLabel}>{sk.label}</Text>
-          <Text style={S.skillGroupBody}>{sk.body}</Text>
+          <Text style={S.skillGroupLabel}>{sanitize(sk.label)}</Text>
+          <Text style={S.skillGroupBody}>{sanitize(sk.body)}</Text>
         </View>
       ))}
 
@@ -503,33 +543,31 @@ function LeftColumn() {
       <SectionHeading label="Achievements" />
       <View style={S.achievementEntry}>
         <Text style={S.achievementTitle}>
-          Prix Poésie en Liberté — 2nd Prize
+          {"Prix Poesie en Liberte - 2nd Prize"}
         </Text>
         <Text style={S.achievementBody}>
-          International French-language poetry competition (Nov 2016), French
-          Ministry of Education. 100,000+ entries from ages 15–25 across all
-          countries.
+          {"International French-language poetry competition (Nov 2016), French Ministry of Education. 100,000+ entries from ages 15-25 across all countries."}
         </Text>
         <Link
           src="https://www.poesie-en-liberte.fr/funerailles-de-lhomme-moderne/"
           style={{ ...S.contactLink, fontSize: 7, marginTop: 1 }}
         >
-          Read the poem →
+          {"Read the poem ->"}
         </Link>
       </View>
       <View style={S.achievementEntry}>
         <Text style={S.achievementTitle}>
-          CPA Québec — December 2025
+          {"CPA Quebec - December 2025"}
         </Text>
         <Text style={S.achievementBody}>
-          Certified Public Accountant designation, CPA Québec.
+          {"Certified Public Accountant designation, CPA Quebec."}
         </Text>
       </View>
     </View>
   );
 }
 
-// ─── Right Column ─────────────────────────────────────────────────────────────
+// ─── Right Column ─────────────────────────────────────────────────────────
 
 function RightColumn() {
   return (
@@ -538,28 +576,20 @@ function RightColumn() {
       <SectionHeading label="Profile" />
       <View style={S.summaryBox}>
         <Text style={S.summaryText}>
-          &quot;I&apos;m a CPA and Assistant Financial Controller who operates
-          at the intersection of accounting and systems architecture. My north
-          is the total obliteration of legacy manual workflows.&quot;
+          {"\"I'm a CPA and Assistant Financial Controller who operates at the intersection of accounting and systems architecture. My north is the total obliteration of legacy manual workflows.\""}
         </Text>
       </View>
       <Text style={S.summarySubText}>
-        William Séguin translates fluently between IT (JSON) and finance
-        (GAAP), and believes removing tedious manual work is a prerequisite for
-        strong company culture. Holding EU citizenship and family ties in
-        Switzerland, he maintains a natural connection to the Swiss and European
-        market.
+        {"William Seguin translates fluently between IT (JSON) and finance (GAAP), and believes removing tedious manual work is a prerequisite for strong company culture. Holding EU citizenship and family ties in Switzerland, he maintains a natural connection to the Swiss and European market."}
       </Text>
 
       {/* Language tags */}
       <View style={S.langRow}>
-        {["French", "English", "Spanish", "Italian"].map(
-          (lang) => (
-            <View key={lang} style={S.langPill}>
-              <Text>{lang}</Text>
-            </View>
-          )
-        )}
+        {LANGUAGES.map((lang) => (
+          <View key={lang} style={S.langPill}>
+            <Text>{lang}</Text>
+          </View>
+        ))}
       </View>
 
       {/* Experience */}
@@ -567,15 +597,15 @@ function RightColumn() {
       {EXPERIENCE.map((role, i) => (
         <View key={role.company} style={S.expEntry} wrap={false}>
           <View style={S.expHeader}>
-            <Text style={S.expTitle}>{role.title}</Text>
-            <Text style={S.expDate}>{role.dates}</Text>
+            <Text style={S.expTitle}>{sanitize(role.title)}</Text>
+            <Text style={S.expDate}>{sanitize(role.dates)}</Text>
           </View>
           {role.url ? (
             <Link src={role.url} style={S.expCompany}>
-              {role.company}
+              {sanitize(role.company)}
             </Link>
           ) : (
-            <Text style={S.expCompany}>{role.company}</Text>
+            <Text style={S.expCompany}>{sanitize(role.company)}</Text>
           )}
           {role.bullets.map((b, j) => (
             <Bullet key={j} text={b} />
@@ -587,15 +617,15 @@ function RightColumn() {
   );
 }
 
-// ─── Document ─────────────────────────────────────────────────────────────────
+// ─── Document ─────────────────────────────────────────────────────────────
 
 export function ResumePDF() {
   return (
     <Document
-      title="William Séguin — Résumé"
-      author="William Séguin"
-      subject="CPA · Assistant Financial Controller"
-      keywords="CPA, accounting, financial controller, Montréal"
+      title="William Seguin - Resume"
+      author="William Seguin"
+      subject="CPA - Assistant Financial Controller"
+      keywords="CPA, accounting, financial controller, Montreal"
       creator="williamseguin.com"
     >
       <Page size="LETTER" style={S.page}>
