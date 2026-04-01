@@ -11,6 +11,7 @@ interface Role {
   logo: string;
   image?: string;
   bullets: string[];
+  printExclude?: boolean;
 }
 
 const ROLES: Role[] = [
@@ -71,6 +72,7 @@ const ROLES: Role[] = [
     dates: "Oct 2018 – Ongoing",
     logo: "/Elections-Canada-Icon.png",
     image: "/Elections-Canada-Image.jpg",
+    printExclude: true,
     bullets: [
       "Ongoing civic mandate; leads teams of 8 as polling supervisor for federal and provincial elections.",
       "Appointed supervisor after proving as clerk and Deputy Returning Officer.",
@@ -83,6 +85,7 @@ const ROLES: Role[] = [
     dates: "Apr 2020 – Aug 2020",
     logo: "/Costco-icon.webp",
     image: "/Costco-image.webp",
+    printExclude: true,
     bullets: [
       "Featured on Membership dept. Top Employees board for credit card and membership conversion performance.",
       "Repeatedly selected to drive new memberships over standard cashier duties.",
@@ -95,6 +98,7 @@ const ROLES: Role[] = [
     url: "https://www.publicoutreachgroup.com",
     logo: "/Public-outreach-icon.jpg",
     image: "/Public-outreach-image.jpg",
+    printExclude: true,
     bullets: [
       "Door-to-door recurring donation campaigns for Doctors Without Borders, Greenpeace, UNICEF, Amnesty International, and CARE.",
       "Developed key communication and persuasion skills through representing world-leading NGOs.",
@@ -113,8 +117,8 @@ export function Career() {
 
         <div className="flex flex-col gap-6">
           {ROLES.map((role, i) => (
-            <FadeInCard key={role.company} delay={i * 0.06}>
-              <div className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+            <FadeInCard key={role.company} delay={i * 0.06} className={role.printExclude ? "print:hidden" : undefined}>
+              <div className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 print:rounded-none print:border print:border-gray-300 print:shadow-none print:break-inside-avoid">
                 <div className="flex flex-col md:flex-row">
                   {/* Left: Image */}
                   {role.image && (

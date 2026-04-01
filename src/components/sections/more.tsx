@@ -63,7 +63,7 @@ function ExternalIcon() {
 
 export function More() {
   return (
-    <section id="more" className="section-padding bg-contrast text-base">
+    <section id="more" className="section-padding bg-contrast text-base print:hidden">
       <div className="content-max">
         <FadeInSection>
           <p className="section-label text-accent/80">Beyond Finance</p>
