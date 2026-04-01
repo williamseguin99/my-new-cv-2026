@@ -215,7 +215,7 @@ const S = StyleSheet.create({
 
   // ── Achievements ───────────────────────────────────────────────────────
   achievementEntry: {
-    marginBottom: 14,
+    marginBottom: 5,
   },
   achievementTitle: {
     fontSize: 8,
