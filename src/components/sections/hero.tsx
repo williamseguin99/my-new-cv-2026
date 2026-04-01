@@ -104,7 +104,7 @@ export function Hero() {
               </a>
               <a
                 href="#career"
-                className="inline-flex items-center gap-2 border border-base/30 text-base font-medium px-6 py-3 rounded-full hover:bg-base/10 hover:border-accent transition-all duration-200 text-sm uppercase tracking-wide"
+                className="hidden md:inline-flex items-center gap-2 border border-base/30 text-base font-medium px-6 py-3 rounded-full hover:bg-base/10 hover:border-accent transition-all duration-200 text-sm uppercase tracking-wide"
               >
                 See My Work
               </a>
