@@ -7,7 +7,7 @@ export function Footer() {
         </p>
         <div className="flex items-center gap-6">
           <a
-            href="https://www.linkedin.com/in/william-seguin-rmw"
+            href="https://www.linkedin.com/in/william-seguin-cpa"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"

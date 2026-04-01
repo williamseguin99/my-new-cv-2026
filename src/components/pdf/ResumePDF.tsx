@@ -487,8 +487,8 @@ function LeftColumn() {
       <SectionHeading label="Contact" />
       <View style={S.contactRow}>
         <Text style={S.contactLabel}>{"@"}</Text>
-        <Link src="mailto:wilsonseguin@icloud.com" style={S.contactLink}>
-          {"wilsonseguin@icloud.com"}
+        <Link src="mailto:hello@williamseguin.com" style={S.contactLink}>
+          {"hello@williamseguin.com"}
         </Link>
       </View>
       <View style={S.contactRow}>
@@ -506,10 +506,10 @@ function LeftColumn() {
       <View style={S.contactRow}>
         <Text style={S.contactLabel}>{"in"}</Text>
         <Link
-          src="https://www.linkedin.com/in/william-seguin-rmw"
+          src="https://www.linkedin.com/in/william-seguin-cpa"
           style={S.contactLink}
         >
-          {"william-seguin-rmw"}
+          {"william-seguin-cpa"}
         </Link>
       </View>
       <View style={S.contactRow}>
