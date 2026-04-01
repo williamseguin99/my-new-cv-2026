@@ -92,19 +92,19 @@ const S = StyleSheet.create({
     fontSize: 7,
     fontFamily: "Helvetica-Bold",
     color: C.muted,
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
-    width: 32,
+    width: 14,
     paddingTop: 0.5,
   },
   contactValue: {
     fontSize: 8,
+    fontFamily: "Helvetica",
     color: C.body,
     flex: 1,
     lineHeight: 1.3,
   },
   contactLink: {
     fontSize: 8,
+    fontFamily: "Helvetica",
     color: C.primary,
     textDecoration: "none",
     flex: 1,
@@ -133,6 +133,7 @@ const S = StyleSheet.create({
   },
   eduNote: {
     fontSize: 7,
+    fontFamily: "Helvetica",
     color: C.light,
     marginTop: 1,
     lineHeight: 1.3,
@@ -152,13 +153,14 @@ const S = StyleSheet.create({
   },
   skillGroupBody: {
     fontSize: 7.5,
+    fontFamily: "Helvetica",
     color: C.body,
     lineHeight: 1.4,
   },
 
   // ── Achievements ─────────────────────────────────────────
   achievementEntry: {
-    marginBottom: 6,
+    marginBottom: 14,
   },
   achievementTitle: {
     fontSize: 8,
@@ -168,6 +170,7 @@ const S = StyleSheet.create({
   },
   achievementBody: {
     fontSize: 7,
+    fontFamily: "Helvetica",
     color: C.muted,
     lineHeight: 1.4,
     marginTop: 1,
@@ -189,6 +192,7 @@ const S = StyleSheet.create({
   },
   summarySubText: {
     fontSize: 8,
+    fontFamily: "Helvetica",
     color: C.muted,
     lineHeight: 1.5,
     marginTop: 4,
@@ -203,6 +207,7 @@ const S = StyleSheet.create({
   },
   langPill: {
     fontSize: 7,
+    fontFamily: "Helvetica",
     color: C.primary,
     borderWidth: 0.5,
     borderColor: C.accent,
@@ -251,6 +256,7 @@ const S = StyleSheet.create({
   },
   bulletText: {
     fontSize: 7.5,
+    fontFamily: "Helvetica",
     color: C.muted,
     lineHeight: 1.4,
     flex: 1,
@@ -391,13 +397,13 @@ function SectionHeading({ label }: { label: string }) {
 }
 
 function Bullet({ text }: { text: string }) {
-  return (
-    <View style={S.bulletRow}>
-      <Text style={S.bulletDot}>▪</Text>
-      <Text style={S.bulletText}>{text}</Text>
-    </View>
-  );
-}
+   return (
+     <View style={S.bulletRow}>
+       <Text style={S.bulletDot}>•</Text>
+       <Text style={S.bulletText}>{text}</Text>
+     </View>
+   );
+ }
 
 // ─── Left Column ─────────────────────────────────────────────────────────────
 
@@ -411,25 +417,25 @@ function LeftColumn() {
       {/* Contact */}
       <SectionHeading label="Contact" />
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>Email</Text>
+        <Text style={S.contactLabel}>✉</Text>
         <Link src="mailto:wilsonseguin@icloud.com" style={S.contactLink}>
           wilsonseguin@icloud.com
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>Phone</Text>
+        <Text style={S.contactLabel}>☎</Text>
         <Link src="tel:+14388386087" style={S.contactLink}>
           +1 (438) 838-6087
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>Web</Text>
+        <Text style={S.contactLabel}>↗</Text>
         <Link src="https://www.williamseguin.com" style={S.contactLink}>
           williamseguin.com
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>LinkedIn</Text>
+        <Text style={S.contactLabel}>in</Text>
         <Link
           src="https://www.linkedin.com/in/william-seguin-rmw"
           style={S.contactLink}
@@ -438,7 +444,7 @@ function LeftColumn() {
         </Link>
       </View>
       <View style={S.contactRow}>
-        <Text style={S.contactLabel}>Location</Text>
+        <Text style={S.contactLabel}>»</Text>
         <Text style={S.contactValue}>Montréal, QC</Text>
       </View>
 
@@ -516,7 +522,7 @@ function RightColumn() {
 
       {/* Language tags */}
       <View style={S.langRow}>
-        {["🇫🇷 French", "🇬🇧 English", "🇪🇸 Spanish", "🇮🇹 Italian"].map(
+        {["French", "English", "Spanish", "Italian"].map(
           (lang) => (
             <View key={lang} style={S.langPill}>
               <Text>{lang}</Text>
