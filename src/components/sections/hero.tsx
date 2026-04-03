@@ -90,9 +90,6 @@ export function Hero() {
                   {flag}
                 </span>
               ))}
-              <span className="text-sm text-base/60 ml-1">
-                {dict.hero.languages_label}
-              </span>
             </motion.div>
 
             <motion.div variants={item} className="flex gap-4 mt-2 flex-wrap items-center">

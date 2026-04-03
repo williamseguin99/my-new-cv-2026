@@ -1,36 +1,54 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { GlobeIcon, Tick02Icon } from "@hugeicons/core-free-icons";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useLanguage } from "@/context/language-context";
 import type { Locale } from "@/i18n/types";
 
-const LOCALES: Locale[] = ["en", "fr", "it", "es"];
+const LANGUAGES = [
+  { locale: "en" as Locale, label: "EN", flag: "🇬🇧" },
+  { locale: "fr" as Locale, label: "FR", flag: "🇫🇷" },
+  { locale: "es" as Locale, label: "ES", flag: "🇪🇸" },
+  { locale: "it" as Locale, label: "IT", flag: "🇮🇹" },
+];
 
 function LanguageSwitcher() {
   const { locale, setLocale, dict } = useLanguage();
 
   return (
-    <div
-      role="group"
-      aria-label={dict.nav.aria_language_switcher}
-      className="flex items-center gap-0.5"
-    >
-      {LOCALES.map((loc) => (
-        <button
-          key={loc}
-          onClick={() => setLocale(loc)}
-          aria-pressed={locale === loc}
-          className={`text-xs font-bold px-2 py-1 rounded-md transition-all duration-150 cursor-pointer uppercase tracking-wide ${
-            locale === loc
-              ? "bg-accent text-contrast"
-              : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
-          }`}
-        >
-          {loc}
-        </button>
-      ))}
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        aria-label={dict.nav.aria_language_switcher}
+        className="h-9 w-9 rounded-full flex items-center justify-center border border-border text-foreground hover:bg-accent hover:text-contrast hover:border-accent transition-all duration-200 cursor-pointer"
+      >
+        <HugeiconsIcon icon={GlobeIcon} size={18} strokeWidth={2} aria-hidden="true" />
+        <span className="sr-only">Toggle language</span>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {LANGUAGES.map(({ locale: loc, label, flag }) => (
+          <DropdownMenuItem
+            key={loc}
+            onClick={() => setLocale(loc)}
+            className="flex items-center justify-between gap-2 cursor-pointer"
+          >
+            <span>
+              {flag} {label}
+            </span>
+            {locale === loc && (
+              <HugeiconsIcon icon={Tick02Icon} size={16} strokeWidth={2} />
+            )}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
 
