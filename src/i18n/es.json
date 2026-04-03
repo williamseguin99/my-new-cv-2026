@@ -1,5 +1,5 @@
 {
-  "_phase1_notes": "ES dictionary — Phase 1. No Spanish content found in LinkedIn CSV export. All profile content keys are MISSING. UI keys are manually translated (flagged with _ui_translated:true).",
+  "_phase1_notes": "ES dictionary — Phase 2. All MISSING values filled from Profile-ES.pdf (verbatim where available) or translated from EN fallback for content not in any PDF.",
   "meta": {
     "lang_name": "Español",
     "lang_code": "es",
@@ -19,11 +19,11 @@
     "_ui_translated": true
   },
   "hero": {
-    "eyebrow": "MISSING — not found in LinkedIn export",
+    "eyebrow": "CPA · Colectivo Humanise · Montréal",
     "name_first": "William",
     "name_last": "Séguin",
-    "quote": "MISSING — not found in LinkedIn export",
-    "mission": "MISSING — not found in LinkedIn export",
+    "quote": "Soy CPA y creador digital con pasión por los números y la eficiencia operativa.",
+    "mission": "Mi misión es apoyar a las personas y la creatividad brindando claridad financiera y fluidez operativa, sin interponerse en la magia.",
     "languages_label": "FR · EN · ES · IT",
     "cta_contact": "Contáctame",
     "cta_work": "Ver mi trayectoria",
@@ -36,71 +36,71 @@
     "_ui_translated": true,
     "roles": {
       "humanise": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Subcontralor",
         "company": "Humanise Collective",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "mayo 2025 – presente",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Mano derecha de la dirección financiera en la supervisión de operaciones para un grupo multi-entidad de 8 agencias de comunicaciones de marketing; producción de resultados financieros mensuales consolidados y explicación de variaciones presupuestarias.",
+          "Automatización de informes y mejora de herramientas de gestión mediante el uso avanzado de PowerQuery y Google Scripts/Macros.",
+          "Supervisión de cuentas por pagar y por cobrar (AP/AR), gestión de tesorería (tarjetas de crédito), facturación intercompañía y facturación de honorarios. Entorno técnico: NetSuite, Excel (PowerQuery), Google Suite."
         ]
       },
       "signe_local": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Jefe de Contabilidad",
         "company": "Signé Local",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "sept. 2023 – mayo 2025",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Supervisión financiera de cuatro tiendas físicas y una plataforma de comercio electrónico.",
+          "Seguimiento regular de los inventarios, proyecciones financieras y conciliación de fondos.",
+          "Implementación de acciones para optimizar la eficiencia operativa y respaldar el crecimiento estratégico."
         ]
       },
       "belvoir": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Controller Financiero",
         "company": "Le Belvoir",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "abr. 2023 – mayo 2025",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Gestión diaria de la contabilidad, registro de transacciones financieras y conciliaciones contables.",
+          "Elaboración de presupuestos y proyecciones financieras para apoyar el crecimiento de la empresa.",
+          "Planificación fiscal: identificación de oportunidades para ahorro de impuestos y garantía del cumplimiento de las normativas locales."
         ]
       },
       "renovco": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Contable de Proyectos",
         "company": "Renovco",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "sept. 2022 – abr. 2023",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Soporte contable por proyecto para iniciativas de restauración y renovación.",
+          "Seguimiento con los jefes de proyecto para garantizar la alineación con los presupuestos y el seguimiento de costos.",
+          "Gestión de los ciclos de cuentas por cobrar y por pagar."
         ]
       },
       "elections_canada": {
-        "title": "MISSING — not found in LinkedIn export",
-        "company": "Elections Canada",
-        "dates": "MISSING — not found in LinkedIn export",
+        "title": "Supervisor Electoral",
+        "company": "Élections Canada | Elections Canada",
+        "dates": "oct. 2018 – en curso",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Mandato cívico recurrente; lidera equipos de 8 personas como supervisor electoral en elecciones federales y provinciales.",
+          "Designado supervisor luego de haberse probado como escrutador.",
+          "Asegura la confidencialidad del voto y el cumplimiento de la ley electoral."
         ]
       },
       "costco": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Atención al Cliente y Ventas",
         "company": "Costco Wholesale",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "abr. 2020 – ago. 2020",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Apareció en el tablero de los mejores empleados del departamento de « Membership » por su desempeño en la conversión de tarjetas de crédito y captación de nuevas membresías.",
+          "Seleccionado en varias ocasiones para captar nuevas membresías en lugar de realizar las tareas habituales de cajero."
         ]
       },
       "public_outreach": {
-        "title": "MISSING — not found in LinkedIn export",
+        "title": "Recaudador de fondos",
         "company": "Public Outreach Fundraising",
-        "dates": "MISSING — not found in LinkedIn export",
+        "dates": "ene. 2018 – mayo 2020",
         "bullets": [
-          "MISSING — not found in LinkedIn export",
-          "MISSING — not found in LinkedIn export"
+          "Campañas de donaciones mensuales puerta a puerta para Médicos Sin Fronteras, Greenpeace, UNICEF, Amnistía Internacional y CARE.",
+          "Desarrollo de habilidades clave en comunicación y persuasión representando a algunas de las ONG más importantes del mundo."
         ]
       }
     }
@@ -112,28 +112,28 @@
     "schools": {
       "sherbrooke": {
         "institution": "Université de Sherbrooke",
-        "credential": "MISSING — not found in LinkedIn export",
-        "dates": "MISSING — not found in LinkedIn export",
-        "notes": "MISSING — not found in LinkedIn export",
+        "credential": "DESS — Diploma de Estudios Superiores Especializados en Contabilidad",
+        "dates": "sept. 2023 – sept. 2025",
+        "notes": "Preparación para el Examen Final Común (EFC) del orden de los CPA.",
         "highlight": "CPA Québec — Diciembre 2025"
       },
       "hec": {
         "institution": "HEC Montréal",
-        "credential": "MISSING — not found in LinkedIn export",
-        "dates": "MISSING — not found in LinkedIn export",
-        "notes": "MISSING — not found in LinkedIn export"
+        "credential": "Grado en Administración de Empresa",
+        "dates": "2018 – 2023",
+        "notes": "Especialidad: Contabilidad. Programa trilingüe (FR / EN / ES)."
       },
       "uc3m": {
         "institution": "Universidad Carlos III de Madrid",
-        "credential": "MISSING — not found in LinkedIn export",
-        "dates": "MISSING — not found in LinkedIn export",
-        "notes": "MISSING — not found in LinkedIn export"
+        "credential": "Intercambio Académico",
+        "dates": "ene. 2022 – jul. 2022",
+        "notes": "Semestre de intercambio — Madrid, España."
       },
       "jean_giono": {
         "institution": "Escuela Internacional Jean Giono de Turín",
-        "credential": "MISSING — not found in LinkedIn export",
-        "dates": "MISSING — not found in LinkedIn export",
-        "notes": "MISSING — not found in LinkedIn export"
+        "credential": "Bachillerato Científico",
+        "dates": "2014 – 2017",
+        "notes": "Especialización en matemáticas. Nota: 18,67/20 (≈ 4,3 GPA). Trilingüe (FR/EN/ES). Representante estudiantil en el Consejo de Administración (2016–17); VP del comité CVL (2014–16)."
       }
     }
   },
@@ -143,14 +143,14 @@
     "_ui_translated": true,
     "qcheck": {
       "title": "Q-Check",
-      "description": "MISSING — not found in LinkedIn export",
+      "description": "Una solución digital de guardarropa enfocada en la simplicidad de los pagos y la fluidez operativa para salas de eventos concurridas. Reimaginando la experiencia de guardarropa de principio a fin — desde la boletería QR hasta los pagos sin fricciones.",
       "cta": "Visitar qcheck.ca",
       "tags": ["FinTech", "SaaS", "Hostelería", "Emprendimiento"],
       "_cta_ui_translated": true
     },
     "moretti_radio": {
       "title": "Moretti Radio",
-      "description": "MISSING — not found in LinkedIn export",
+      "description": "Serie episódica de mezclas de DJ bajo el alias Chill Will. Afro-Balearic Chic — combinando Afro House, Nu-Disco, French Touch y Electrónica Melódica para eventos corporativos y residencias en restaurantes. Una escucha sofisticada y sin fricciones.",
       "cta": "Escuchar en SoundCloud",
       "tags": ["Música", "DJ", "Eventos corporativos", "Restaurantes"],
       "_cta_ui_translated": true
@@ -162,32 +162,32 @@
     "_ui_translated": true,
     "dj": {
       "title": "DJ Chill Will",
-      "body": "MISSING — not found in LinkedIn export",
+      "body": "Fuera de las finanzas, me presento como DJ Chill Will en eventos corporativos y residencias en restaurantes. Presentador de Moretti Radio — Afro-Balearic Chic, una escucha sofisticada y sin fricciones.",
       "link_label": "Escuchar en SoundCloud",
       "_link_ui_translated": true
     },
     "wellness": {
       "title": "Disciplina y Bienestar",
-      "body": "MISSING — not found in LinkedIn export",
+      "body": "Comienzo cada día a las 6 a.m. con meditación y exposición al frío. El yoga y el entrenamiento de fuerza me mantienen concentrado y lleno de energía. Participé en el evento de resistencia 24h Tremblant en beneficio de fundaciones infantiles.",
       "_title_ui_translated": true
     },
     "poetry": {
       "title": "Prix Poésie en Liberté — 2.° Premio",
-      "body": "MISSING — not found in LinkedIn export",
-      "_note": "Honor description in LinkedIn export is in French only (author's native language). No Spanish version found.",
+      "body": "2.° premio en el Prix Poésie en Liberté (nov. 2016) — un concurso internacional de poesía en lengua francesa organizado bajo el Ministerio de Educación Nacional de Francia, con más de 100.000 participantes de entre 15 y 25 años de todos los países.",
+      "_note": "Honor description in LinkedIn export is in French only (author's native language). Spanish body is an adapted translation.",
       "link_label": "Leer el poema",
       "_link_ui_translated": true
     },
     "global": {
       "title": "Perspectiva global",
-      "body": "MISSING — not found in LinkedIn export",
+      "body": "Cuadrilingüe (FR/EN/ES/IT), ciudadano europeo, vínculos familiares en Suiza. Estudios en Turín, Montréal y Madrid. Abierto a intercambios profesionales en los mercados suizo y europeo.",
       "_title_ui_translated": true
     }
   },
   "contact": {
     "section_label": "Ponte en contacto",
     "section_heading": "Contacto",
-    "intro": "MISSING — not found in LinkedIn export",
+    "intro": "Ya sea una oportunidad profesional, una colaboración o simplemente una conversación — me encantaría saber de ti.",
     "_ui_translated": true,
     "form": {
       "label_name": "Nombre",
@@ -227,28 +227,28 @@
     "section_experience": "Experiencia profesional",
     "headline": "CPA · Controller Financiero Adjunto",
     "_headline_ui_translated": true,
-    "profile_quote": "MISSING — not found in LinkedIn export",
-    "profile_sub": "MISSING — not found in LinkedIn export",
+    "profile_quote": "\"Soy un CPA y Controller Financiero Adjunto que opera en la intersección entre la contabilidad y la arquitectura de sistemas. Mi Norte es la obliteración total de los flujos de trabajo manuales obsoletos.\"",
+    "profile_sub": "William Seguin traduce con fluidez entre TI (JSON) y finanzas (IFRS), y cree que eliminar el trabajo manual tedioso es un requisito indispensable para una cultura empresarial sólida. Con ciudadanía de la UE y familia en Suiza, mantiene una conexión natural con el mercado suizo y europeo.",
     "skills": {
       "systems_label": "Sistemas y Herramientas",
       "systems_body": "Microsoft Power Query · Google Apps Script · NetSuite · Microsoft Excel",
       "_systems_note": "Tool names are language-agnostic; section label is UI-translated",
       "accounting_label": "Contabilidad",
-      "accounting_body": "MISSING — not found in LinkedIn export",
-      "_accounting_note": "Skills.csv exported in French only; no Spanish version found",
+      "accounting_body": "Contabilidad multi-entidad · Análisis de variaciones · Informes financieros · Cumplimiento fiscal · Preparación de presupuestos · Gestión de tesorería",
+      "_accounting_note": "Translated from EN fallback; no Spanish version in LinkedIn export",
       "process_label": "Procesos",
-      "process_body": "MISSING — not found in LinkedIn export",
-      "_process_note": "Skills.csv exported in French only; no Spanish version found",
+      "process_body": "Automatización de procesos · Modelado de procesos · Planificación estratégica · Gestión de proyectos",
+      "_process_note": "Translated from EN fallback; no Spanish version in LinkedIn export",
       "languages_label": "Idiomas",
       "languages_body": "Francés (nativo) · Italiano (nativo) · Inglés (profesional) · Español (profesional)",
       "_languages_source": "LinkedIn Languages.csv — language names translated to Spanish; proficiency from export"
     },
     "achievements": {
       "poetry_title": "Prix Poésie en Liberté — 2.° Premio",
-      "poetry_body": "MISSING — not found in LinkedIn export",
-      "_poetry_note": "LinkedIn Honors.csv description is in French only. No Spanish version found.",
+      "poetry_body": "Concurso internacional de poesía en lengua francesa (nov. 2016), Ministerio de Educación Nacional de Francia. Más de 100.000 participantes de entre 15 y 25 años de todos los países.",
+      "_poetry_note": "Translated from EN fallback; LinkedIn Honors.csv description is in French only.",
       "cpa_title": "CPA Québec — Diciembre 2025",
-      "cpa_body": "MISSING — not found in LinkedIn export",
+      "cpa_body": "Designación de Contador Público Certificado, CPA Québec.",
       "_cpa_ui_translated": true
     },
     "download_aria": "Descargar CV en PDF",
