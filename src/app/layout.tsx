@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/context/language-context";
 
 const atten = localFont({
   src: [
@@ -73,7 +74,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

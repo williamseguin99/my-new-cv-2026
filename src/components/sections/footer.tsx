@@ -1,16 +1,23 @@
+"use client";
+
+import { useLanguage } from "@/context/language-context";
+
 export function Footer() {
+  const { dict } = useLanguage();
+  const copyright = dict.footer.copyright.replace("{year}", String(new Date().getFullYear()));
+
   return (
     <footer className="bg-contrast text-base py-8 px-6 border-t border-base/15">
       <div className="content-max flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-base/50">
-          © {new Date().getFullYear()} William Séguin. All rights reserved.
+          {copyright}
         </p>
         <div className="flex items-center gap-6">
           <a
             href="https://www.linkedin.com/in/william-seguin-cpa"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label={dict.footer.aria_linkedin}
             className="text-base/50 hover:text-accent transition-colors duration-200"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
@@ -21,7 +28,7 @@ export function Footer() {
             href="https://github.com/williamseguin99"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label={dict.footer.aria_github}
             className="text-base/50 hover:text-accent transition-colors duration-200"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 496 512" fill="currentColor" aria-hidden="true">
@@ -32,7 +39,7 @@ export function Footer() {
             href="https://www.instagram.com/therealwilliamseguin/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
+            aria-label={dict.footer.aria_instagram}
             className="text-base/50 hover:text-accent transition-colors duration-200"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">

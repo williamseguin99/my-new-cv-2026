@@ -2,14 +2,37 @@
 
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { useLanguage } from "@/context/language-context";
+import type { Locale } from "@/i18n/types";
 
-const NAV_LINKS = [
-  { label: "Career", href: "#career" },
-  { label: "Education", href: "#education" },
-  { label: "Projects", href: "#projects" },
-  { label: "More", href: "#more" },
-  { label: "Contact", href: "#contact" },
-];
+const LOCALES: Locale[] = ["en", "fr", "it", "es"];
+
+function LanguageSwitcher() {
+  const { locale, setLocale, dict } = useLanguage();
+
+  return (
+    <div
+      role="group"
+      aria-label={dict.nav.aria_language_switcher}
+      className="flex items-center gap-0.5"
+    >
+      {LOCALES.map((loc) => (
+        <button
+          key={loc}
+          onClick={() => setLocale(loc)}
+          aria-pressed={locale === loc}
+          className={`text-xs font-bold px-2 py-1 rounded-md transition-all duration-150 cursor-pointer uppercase tracking-wide ${
+            locale === loc
+              ? "bg-accent text-contrast"
+              : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
+          }`}
+        >
+          {loc}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 function MenuIcon({ open }: { open: boolean }) {
   return (
@@ -44,6 +67,15 @@ function MenuIcon({ open }: { open: boolean }) {
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { dict } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: dict.nav.career, href: "#career" },
+    { label: dict.nav.education, href: "#education" },
+    { label: dict.nav.projects, href: "#projects" },
+    { label: dict.nav.more, href: "#more" },
+    { label: dict.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -72,7 +104,7 @@ export function Header() {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-6" aria-label={dict.nav.aria_main}>
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -83,14 +115,16 @@ export function Header() {
               <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-accent transition-all duration-200 group-hover:w-full" />
             </a>
           ))}
+          <LanguageSwitcher />
           <ThemeToggle />
         </nav>
 
         {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-3">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-label={menuOpen ? dict.nav.aria_close_menu : dict.nav.aria_open_menu}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((prev) => !prev)}
             className="h-9 w-9 rounded-full flex items-center justify-center border border-border text-foreground hover:bg-accent hover:text-contrast hover:border-accent transition-all duration-200 cursor-pointer"
@@ -109,7 +143,7 @@ export function Header() {
       >
         <nav
           className="bg-background/98 backdrop-blur-md border-t border-border px-6 py-4 flex flex-col gap-1"
-          aria-label="Mobile navigation"
+          aria-label={dict.nav.aria_mobile}
         >
           {NAV_LINKS.map((link) => (
             <a

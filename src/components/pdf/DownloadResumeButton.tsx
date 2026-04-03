@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { ResumePDF } from "./ResumePDF";
+import { useLanguage } from "@/context/language-context";
 
 // SSR-safe hydration check — same pattern as theme-toggle.tsx
 function subscribe() {
@@ -42,6 +43,7 @@ function PdfIcon() {
 
 export function DownloadResumeButton() {
   const mounted = useMounted();
+  const { dict } = useLanguage();
 
   if (!mounted) {
     // Placeholder with identical dimensions so layout doesn't shift
@@ -55,9 +57,9 @@ export function DownloadResumeButton() {
 
   return (
     <PDFDownloadLink
-      document={<ResumePDF />}
+      document={<ResumePDF dict={dict} />}
       fileName="will-seguin-resume.pdf"
-      aria-label="Download PDF résumé"
+      aria-label={dict.pdf.download_aria}
       className="h-12 w-12 rounded-full flex items-center justify-center border border-base/30 text-base hover:bg-base/10 hover:border-accent hover:text-accent transition-all duration-200"
     >
       <PdfIcon />

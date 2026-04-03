@@ -7,12 +7,9 @@ import {
   StyleSheet,
   Font,
 } from "@react-pdf/renderer";
+import type { Dictionary } from "@/i18n/types";
 
 // ─── Font registration ─────────────────────────────────────────────────────
-// This module is only loaded client-side (ssr: false on the dynamic import),
-// so window is always defined here. We build an absolute URL so @react-pdf/renderer
-// can fetch the OTF files over HTTP. Falls back to built-in Helvetica if the
-// fetch fails (e.g. dev server not yet started / file not found).
 let FONT_FAMILY = "Helvetica";
 let FONT_BOLD = "Helvetica-Bold";
 
@@ -29,15 +26,13 @@ if (typeof window !== "undefined") {
     FONT_FAMILY = "AttenRoundNew";
     FONT_BOLD = "AttenRoundNew";
   } catch {
-    // Fallback to built-in Helvetica — PDF still renders cleanly
+    // Fallback to built-in Helvetica
   }
 }
 
 Font.registerHyphenationCallback((word) => [word]);
 
 // ─── Emoji sanitizer ──────────────────────────────────────────────────────
-// Strips emoji/pictograph code points that PDFKit cannot render.
-// Bullet-style emojis are replaced with the PDF-safe • character.
 const ALL_EMOJI_RE =
   /[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE00}-\u{FEFF}\u{E0000}-\u{E01FF}]/gu;
 
@@ -72,8 +67,6 @@ const S = StyleSheet.create({
     fontSize: 9,
     color: C.body,
   },
-
-  // ── Two-column layout ──────────────────────────────────────────────────
   columns: {
     flexDirection: "row",
     gap: 18,
@@ -89,8 +82,6 @@ const S = StyleSheet.create({
     flexDirection: "column",
     gap: 0,
   },
-
-  // ── Name / title block ─────────────────────────────────────────────────
   name: {
     fontSize: 22,
     fontFamily: FONT_BOLD,
@@ -107,8 +98,6 @@ const S = StyleSheet.create({
     marginBottom: 10,
     letterSpacing: 0.3,
   },
-
-  // ── Section heading ────────────────────────────────────────────────────
   sectionHeading: {
     fontSize: 7,
     fontFamily: FONT_BOLD,
@@ -124,8 +113,6 @@ const S = StyleSheet.create({
     borderBottomColor: C.accent,
     marginBottom: 6,
   },
-
-  // ── Contact ────────────────────────────────────────────────────────────
   contactRow: {
     flexDirection: "row",
     alignItems: "flex-start",
@@ -157,8 +144,6 @@ const S = StyleSheet.create({
     flex: 1,
     lineHeight: 1.3,
   },
-
-  // ── Education ──────────────────────────────────────────────────────────
   eduEntry: {
     marginBottom: 8,
   },
@@ -191,8 +176,6 @@ const S = StyleSheet.create({
     marginTop: 1,
     lineHeight: 1.3,
   },
-
-  // ── Skills ─────────────────────────────────────────────────────────────
   skillGroup: {
     marginBottom: 5,
   },
@@ -212,8 +195,6 @@ const S = StyleSheet.create({
     color: C.body,
     lineHeight: 1.4,
   },
-
-  // ── Achievements ───────────────────────────────────────────────────────
   achievementEntry: {
     marginBottom: 5,
   },
@@ -232,8 +213,6 @@ const S = StyleSheet.create({
     lineHeight: 1.4,
     marginTop: 1,
   },
-
-  // ── Summary ────────────────────────────────────────────────────────────
   summaryBox: {
     borderLeftWidth: 2.5,
     borderLeftColor: C.accent,
@@ -256,8 +235,6 @@ const S = StyleSheet.create({
     lineHeight: 1.5,
     marginTop: 4,
   },
-
-  // ── Language pills ─────────────────────────────────────────────────────
   langRow: {
     flexDirection: "row",
     gap: 6,
@@ -275,8 +252,6 @@ const S = StyleSheet.create({
     paddingHorizontal: 4,
     paddingVertical: 1.5,
   },
-
-  // ── Experience entries ─────────────────────────────────────────────────
   expEntry: {
     marginBottom: 9,
   },
@@ -335,124 +310,28 @@ const S = StyleSheet.create({
   },
 });
 
-// ─── Data ─────────────────────────────────────────────────────────────────
+// ─── Static URL config (not text content — not from dict) ─────────────────
+const ROLE_URLS: Record<string, string> = {
+  humanise: "https://www.humanise.world/",
+  signe_local: "https://www.signelocal.com",
+  belvoir: "https://www.manoirs.ca",
+  renovco: "https://www.renovco.com",
+  elections_canada: "https://www.elections.ca/",
+  costco: "https://www.costco.ca/",
+  public_outreach: "https://www.publicoutreachgroup.com",
+};
 
-const EXPERIENCE = [
-  {
-    title: "Assistant Financial Controller",
-    company: "Humanise Collective",
-    dates: "May 2025 - Present",
-    url: "https://www.humanise.world/",
-    bullets: [
-      "Right hand to financial management for an 8-agency marketing communications group.",
-      "Full accounting cycle, consolidated reporting, process automation via NetSuite, PowerQuery, and Google Scripts.",
-    ],
-  },
-  {
-    title: "Chief Accountant",
-    company: "Signe Local",
-    dates: "Sep 2023 - May 2025",
-    url: "https://www.signelocal.com",
-    bullets: [
-      "Financial oversight for 4 physical stores and eCommerce platform.",
-      "Inventory monitoring, financial forecasting, and funds reconciliation.",
-    ],
-  },
-  {
-    title: "Financial Controller",
-    company: "Le Belvoir",
-    dates: "Apr 2023 - May 2025",
-    url: "https://www.manoirs.ca",
-    bullets: [
-      "Bookkeeping, reconciliation, budgeting, and tax planning for a heritage hospitality and event company.",
-    ],
-  },
-  {
-    title: "Project Accountant",
-    company: "Renovco",
-    dates: "Sep 2022 - Apr 2023",
-    url: "https://www.renovco.com",
-    bullets: [
-      "Project-based accounting support; A/R + A/P cycles; budget alignment with project managers.",
-    ],
-  },
-  {
-    title: "Central Poll Supervisor",
-    company: "Elections Canada",
-    dates: "Oct 2018 - Ongoing",
-    url: "https://www.elections.ca/",
-    bullets: [
-      "Leads teams of 8 as polling supervisor for federal and provincial elections.",
-      "Appointed supervisor after proving as clerk and Deputy Returning Officer.",
-    ],
-  },
-  {
-    title: "Customer Service & Sales",
-    company: "Costco Wholesale",
-    dates: "Apr 2020 - Aug 2020",
-    url: "https://www.costco.ca/",
-    bullets: [
-      "Featured on Membership dept. Top Employees board for credit card and membership conversion performance.",
-    ],
-  },
-  {
-    title: "Fundraiser",
-    company: "Public Outreach Fundraising",
-    dates: "Jan 2018 - May 2020",
-    url: "https://www.publicoutreachgroup.com",
-    bullets: [
-      "Door-to-door recurring donation campaigns for Doctors Without Borders, Greenpeace, UNICEF, Amnesty International, and CARE.",
-    ],
-  },
-];
+const ROLE_KEYS = [
+  "humanise",
+  "signe_local",
+  "belvoir",
+  "renovco",
+  "elections_canada",
+  "costco",
+  "public_outreach",
+] as const;
 
-const EDUCATION = [
-  {
-    institution: "Universite de Sherbrooke",
-    credential: "DESS - Specialized Graduate Diploma in Accounting",
-    dates: "Sep 2023 - Sep 2025",
-    note: "CPA CFE preparation. Passed December 2025.",
-  },
-  {
-    institution: "HEC Montreal",
-    credential: "BBA - Bachelor of Business Administration",
-    dates: "Sep 2018 - Apr 2023",
-    note: "Major: Accounting. Trilingual program (FR/EN/ES).",
-  },
-  {
-    institution: "Universidad Carlos III de Madrid",
-    credential: "Student Exchange",
-    dates: "Jan 2022 - Jul 2022",
-    note: "Semester exchange - Madrid, Spain.",
-  },
-  {
-    institution: "Jean Giono Intl. School of Turin",
-    credential: "Baccalaureat Scientifique",
-    dates: "2014 - 2017",
-    note: "Math spec. Grade: 18.67/20 (approx. 4.3 GPA). Trilingual (FR/EN/ES).",
-  },
-];
-
-const SKILLS = [
-  {
-    label: "Systems & Tools",
-    body: "Microsoft Power Query · Google Apps Script · NetSuite · Microsoft Excel",
-  },
-  {
-    label: "Accounting",
-    body: "Multi-entity accounting · Variance analysis · Financial reporting · Tax compliance · Budget preparation · Treasury management",
-  },
-  {
-    label: "Process",
-    body: "Process automation · Process modeling · Strategic planning · Project management",
-  },
-  {
-    label: "Languages",
-    body: "French (native) · Italian (native) · English (professional) · Spanish (professional)",
-  },
-];
-
-const LANGUAGES = ["French", "English", "Spanish", "Italian"];
+const SCHOOL_KEYS = ["sherbrooke", "hec", "uc3m", "jean_giono"] as const;
 
 // ─── Sub-components ───────────────────────────────────────────────────────
 
@@ -476,15 +355,22 @@ function Bullet({ text }: { text: string }) {
 
 // ─── Left Column ──────────────────────────────────────────────────────────
 
-function LeftColumn() {
+function LeftColumn({ dict }: { dict: Dictionary }) {
+  const skills = [
+    { label: dict.pdf.skills.systems_label, body: dict.pdf.skills.systems_body },
+    { label: dict.pdf.skills.accounting_label, body: dict.pdf.skills.accounting_body },
+    { label: dict.pdf.skills.process_label, body: dict.pdf.skills.process_body },
+    { label: dict.pdf.skills.languages_label, body: dict.pdf.skills.languages_body },
+  ];
+
   return (
     <View style={S.leftCol}>
       {/* Name */}
       <Text style={S.name}>{"William\nSeguin"}</Text>
-      <Text style={S.headline}>{"CPA · Assistant Financial Controller"}</Text>
+      <Text style={S.headline}>{sanitize(dict.pdf.headline)}</Text>
 
       {/* Contact */}
-      <SectionHeading label="Contact" />
+      <SectionHeading label={dict.pdf.section_contact} />
       <View style={S.contactRow}>
         <Text style={S.contactLabel}>{"@"}</Text>
         <Link src="mailto:hello@williamseguin.com" style={S.contactLink}>
@@ -518,21 +404,25 @@ function LeftColumn() {
       </View>
 
       {/* Education */}
-      <SectionHeading label="Education" />
-      {EDUCATION.map((edu) => (
-        <View key={edu.institution} style={S.eduEntry}>
-          <Text style={S.eduInstitution}>{sanitize(edu.institution)}</Text>
-          <Text style={S.eduCredential}>{sanitize(edu.credential)}</Text>
-          <Text style={S.eduDate}>{sanitize(edu.dates)}</Text>
-          {edu.note ? (
-            <Text style={S.eduNote}>{sanitize(edu.note)}</Text>
-          ) : null}
-        </View>
-      ))}
+      <SectionHeading label={dict.pdf.section_education} />
+      {SCHOOL_KEYS.map((key) => {
+        const school = dict.education.schools[key];
+        const note = school.notes as string;
+        return (
+          <View key={key} style={S.eduEntry}>
+            <Text style={S.eduInstitution}>{sanitize(school.institution)}</Text>
+            <Text style={S.eduCredential}>{sanitize(school.credential)}</Text>
+            <Text style={S.eduDate}>{sanitize(school.dates)}</Text>
+            {note ? (
+              <Text style={S.eduNote}>{sanitize(note)}</Text>
+            ) : null}
+          </View>
+        );
+      })}
 
       {/* Skills */}
-      <SectionHeading label="Skills" />
-      {SKILLS.map((sk) => (
+      <SectionHeading label={dict.pdf.section_skills} />
+      {skills.map((sk) => (
         <View key={sk.label} style={S.skillGroup}>
           <Text style={S.skillGroupLabel}>{sanitize(sk.label)}</Text>
           <Text style={S.skillGroupBody}>{sanitize(sk.body)}</Text>
@@ -540,21 +430,21 @@ function LeftColumn() {
       ))}
 
       {/* Achievements */}
-      <SectionHeading label="Achievements" />
+      <SectionHeading label={dict.pdf.section_achievements} />
       <View style={S.achievementEntry}>
         <Text style={S.achievementTitle}>
-          {"Prix Poesie en Liberte - 2nd Prize"}
+          {sanitize(dict.pdf.achievements.poetry_title)}
         </Text>
         <Text style={S.achievementBody}>
-          {"International French-language poetry competition (Nov 2016), French Ministry of Education. 100,000+ entries from ages 15-25 across all countries."}
+          {sanitize(dict.pdf.achievements.poetry_body)}
         </Text>
       </View>
       <View style={S.achievementEntry}>
         <Text style={S.achievementTitle}>
-          {"CPA Quebec - December 2025"}
+          {sanitize(dict.pdf.achievements.cpa_title)}
         </Text>
         <Text style={S.achievementBody}>
-          {"Certified Public Accountant designation, CPA Quebec."}
+          {sanitize(dict.pdf.achievements.cpa_body)}
         </Text>
       </View>
     </View>
@@ -563,23 +453,28 @@ function LeftColumn() {
 
 // ─── Right Column ─────────────────────────────────────────────────────────
 
-function RightColumn() {
+function RightColumn({ dict }: { dict: Dictionary }) {
+  // Derive language pills by splitting the languages_body on " · " and taking the word before "("
+  const langPills = (dict.pdf.skills.languages_body as string)
+    .split(" · ")
+    .map((entry) => entry.split("(")[0].trim());
+
   return (
     <View style={S.rightCol}>
       {/* Summary */}
-      <SectionHeading label="Profile" />
+      <SectionHeading label={dict.pdf.section_profile} />
       <View style={S.summaryBox}>
         <Text style={S.summaryText}>
-          {"\"I'm a CPA and Assistant Financial Controller who operates at the intersection of accounting and systems architecture. My north is the total obliteration of legacy manual workflows.\""}
+          {sanitize(dict.pdf.profile_quote)}
         </Text>
       </View>
       <Text style={S.summarySubText}>
-        {"William Seguin translates fluently between IT (JSON) and finance (GAAP), and believes removing tedious manual work is a prerequisite for strong company culture. Holding EU citizenship and family ties in Switzerland, he maintains a natural connection to the Swiss and European market."}
+        {sanitize(dict.pdf.profile_sub)}
       </Text>
 
       {/* Language tags */}
       <View style={S.langRow}>
-        {LANGUAGES.map((lang) => (
+        {langPills.map((lang) => (
           <View key={lang} style={S.langPill}>
             <Text>{lang}</Text>
           </View>
@@ -587,36 +482,45 @@ function RightColumn() {
       </View>
 
       {/* Experience */}
-      <SectionHeading label="Work Experience" />
-      {EXPERIENCE.map((role, i) => (
-        <View key={role.company} style={S.expEntry} wrap={false}>
-          <View style={S.expHeader}>
-            <Text style={S.expTitle}>{sanitize(role.title)}</Text>
-            <Text style={S.expDate}>{sanitize(role.dates)}</Text>
+      <SectionHeading label={dict.pdf.section_experience} />
+      {ROLE_KEYS.map((key, i) => {
+        const role = dict.career.roles[key];
+        const bullets = role.bullets as string[];
+        const url = ROLE_URLS[key];
+        return (
+          <View key={key} style={S.expEntry} wrap={false}>
+            <View style={S.expHeader}>
+              <Text style={S.expTitle}>{sanitize(role.title)}</Text>
+              <Text style={S.expDate}>{sanitize(role.dates)}</Text>
+            </View>
+            {url ? (
+              <Link src={url} style={S.expCompany}>
+                {sanitize(role.company)}
+              </Link>
+            ) : (
+              <Text style={S.expCompany}>{sanitize(role.company)}</Text>
+            )}
+            {bullets.map((b, j) => (
+              <Bullet key={j} text={b} />
+            ))}
+            {i < ROLE_KEYS.length - 1 && <View style={S.expDivider} />}
           </View>
-          {role.url ? (
-            <Link src={role.url} style={S.expCompany}>
-              {sanitize(role.company)}
-            </Link>
-          ) : (
-            <Text style={S.expCompany}>{sanitize(role.company)}</Text>
-          )}
-          {role.bullets.map((b, j) => (
-            <Bullet key={j} text={b} />
-          ))}
-          {i < EXPERIENCE.length - 1 && <View style={S.expDivider} />}
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 }
 
 // ─── Document ─────────────────────────────────────────────────────────────
 
-export function ResumePDF() {
+interface ResumePDFProps {
+  dict: Dictionary;
+}
+
+export function ResumePDF({ dict }: ResumePDFProps) {
   return (
     <Document
-      title="William Seguin - Resume"
+      title={dict.pdf.document_title}
       author="William Seguin"
       subject="CPA - Assistant Financial Controller"
       keywords="CPA, accounting, financial controller, Montreal"
@@ -624,8 +528,8 @@ export function ResumePDF() {
     >
       <Page size="LETTER" style={S.page}>
         <View style={S.columns}>
-          <LeftColumn />
-          <RightColumn />
+          <LeftColumn dict={dict} />
+          <RightColumn dict={dict} />
         </View>
       </Page>
     </Document>

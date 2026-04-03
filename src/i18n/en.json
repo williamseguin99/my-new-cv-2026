@@ -12,7 +12,8 @@
     "aria_main": "Main navigation",
     "aria_mobile": "Mobile navigation",
     "aria_open_menu": "Open menu",
-    "aria_close_menu": "Close menu"
+    "aria_close_menu": "Close menu",
+    "aria_language_switcher": "Select language"
   },
   "hero": {
     "eyebrow": "CPA · Humanise Collective · Montréal",

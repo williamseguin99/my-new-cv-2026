@@ -1,42 +1,32 @@
 "use client";
 
 import { FadeInSection, FadeInCard } from "@/components/motion-wrapper";
+import { useLanguage } from "@/context/language-context";
 
-interface Fact {
+interface FactConfig {
+  key: "dj" | "wellness" | "poetry" | "global";
   emoji: string;
-  title: string;
-  body: string;
-  link?: { label: string; href: string };
+  link?: { href: string };
 }
 
-const FACTS: Fact[] = [
+const FACT_CONFIGS: FactConfig[] = [
   {
+    key: "dj",
     emoji: "🎧",
-    title: "DJ Chill Will",
-    body: "Outside of finance, I perform as DJ Chill Will for corporate events and restaurant residencies. Host of Moretti Radio — Afro-Balearic Chic, sophisticated frictionless listening.",
-    link: {
-      label: "Listen on SoundCloud",
-      href: "https://soundcloud.com/morettiradio",
-    },
+    link: { href: "https://soundcloud.com/morettiradio" },
   },
   {
+    key: "wellness",
     emoji: "🧘",
-    title: "Discipline & Wellness",
-    body: "I start every day at 6 a.m. with meditation and cold exposure. Yoga and strength training keep me focused and energized. Competed in the 24h Tremblant endurance event for children's foundations.",
   },
   {
+    key: "poetry",
     emoji: "✍️",
-    title: "Prix Poésie en Liberté — 2nd Prize",
-    body: "2nd prize in the Prix Poésie en Liberté (Nov 2016) — an international French-language poetry competition run under the French Ministry of National Education, with 100,000+ entries annually from ages 15–25 across all countries.",
-    link: {
-      label: "Read the poem",
-      href: "https://www.poesie-en-liberte.fr/funerailles-de-lhomme-moderne/",
-    },
+    link: { href: "https://www.poesie-en-liberte.fr/funerailles-de-lhomme-moderne/" },
   },
   {
+    key: "global",
     emoji: "🌍",
-    title: "Global Perspective",
-    body: "Quadrilingual (FR/EN/ES/IT), EU citizen, family ties in Switzerland. Studied in Turin, Montreal, and Madrid. Open to professional exchanges within the Swiss and European market.",
   },
 ];
 
@@ -62,37 +52,43 @@ function ExternalIcon() {
 }
 
 export function More() {
+  const { dict } = useLanguage();
+
   return (
     <section id="more" className="section-padding bg-contrast text-base">
       <div className="content-max">
         <FadeInSection>
-          <p className="section-label text-accent/80">Beyond Finance</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-base mb-12">More</h2>
+          <p className="section-label text-accent/80">{dict.more.section_label}</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-base mb-12">{dict.more.section_heading}</h2>
         </FadeInSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {FACTS.map((fact, i) => (
-            <FadeInCard key={fact.title} delay={i * 0.08}>
-              <div className="group bg-base/5 border border-base/15 rounded-2xl p-6 hover:border-accent/50 hover:bg-base/8 transition-all duration-300 h-full flex flex-col gap-4">
-                <div className="text-3xl" aria-hidden="true">{fact.emoji}</div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-lg text-base mb-2">{fact.title}</h3>
-                  <p className="text-sm text-base/65 leading-relaxed">{fact.body}</p>
+          {FACT_CONFIGS.map((config, i) => {
+            const fact = dict.more[config.key];
+            const linkLabel = "link_label" in fact ? (fact.link_label as string) : undefined;
+            return (
+              <FadeInCard key={config.key} delay={i * 0.08}>
+                <div className="group bg-base/5 border border-base/15 rounded-2xl p-6 hover:border-accent/50 hover:bg-base/8 transition-all duration-300 h-full flex flex-col gap-4">
+                  <div className="text-3xl" aria-hidden="true">{config.emoji}</div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg text-base mb-2">{fact.title}</h3>
+                    <p className="text-sm text-base/65 leading-relaxed">{fact.body}</p>
+                  </div>
+                  {config.link && linkLabel && (
+                    <a
+                      href={config.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline self-start"
+                    >
+                      {linkLabel}
+                      <ExternalIcon />
+                    </a>
+                  )}
                 </div>
-                {fact.link && (
-                  <a
-                    href={fact.link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline self-start"
-                  >
-                    {fact.link.label}
-                    <ExternalIcon />
-                  </a>
-                )}
-              </div>
-            </FadeInCard>
-          ))}
+              </FadeInCard>
+            );
+          })}
         </div>
       </div>
     </section>
