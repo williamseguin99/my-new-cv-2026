@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Languages } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { GlobeIcon, Tick02Icon } from "@hugeicons/core-free-icons";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,10 +15,10 @@ import { useLanguage } from "@/context/language-context";
 import type { Locale } from "@/i18n/types";
 
 const LANGUAGES = [
-  { locale: "en" as Locale, label: "EN", flag: "🇬🇧" },
-  { locale: "fr" as Locale, label: "FR", flag: "🇫🇷" },
-  { locale: "es" as Locale, label: "ES", flag: "🇪🇸" },
-  { locale: "it" as Locale, label: "IT", flag: "🇮🇹" },
+  { locale: "en" as Locale, label: "English", flag: "🇬🇧" },
+  { locale: "fr" as Locale, label: "Français", flag: "🇫🇷" },
+  { locale: "es" as Locale, label: "Español", flag: "🇪🇸" },
+  { locale: "it" as Locale, label: "Italiano", flag: "🇮🇹" },
 ];
 
 function LanguageSwitcher() {
@@ -29,7 +30,7 @@ function LanguageSwitcher() {
         aria-label={dict.nav.aria_language_switcher}
         className="h-9 w-9 rounded-full flex items-center justify-center border border-border text-foreground hover:bg-accent hover:text-contrast hover:border-accent transition-all duration-200 cursor-pointer"
       >
-        <HugeiconsIcon icon={GlobeIcon} size={18} strokeWidth={2} aria-hidden="true" />
+        <Languages className="h-4 w-4" aria-hidden="true" />
         <span className="sr-only">Toggle language</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -37,10 +38,10 @@ function LanguageSwitcher() {
           <DropdownMenuItem
             key={loc}
             onClick={() => setLocale(loc)}
-            className="flex items-center justify-between gap-2 cursor-pointer"
+            className="flex items-center justify-between gap-2 cursor-pointer focus:text-contrast"
           >
             <span>
-              {flag} {label}
+              <span className="mr-2">{flag}</span>{label}
             </span>
             {locale === loc && (
               <HugeiconsIcon icon={Tick02Icon} size={16} strokeWidth={2} />
