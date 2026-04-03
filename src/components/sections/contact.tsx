@@ -163,7 +163,7 @@ export function Contact() {
 
           {/* Sidebar */}
           <div className="lg:col-span-2 flex flex-col">
-            <div className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-4 h-full">
+            <div className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-4 self-start">
               <h3 className="font-bold text-foreground">Direct Contact</h3>
               <a
                 href="mailto:hello@williamseguin.com?subject=Hello%20William"
