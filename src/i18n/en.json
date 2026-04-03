@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "lang_name": "English",
+    "lang_code": "en"
+  },
+  "nav": {
+    "career": "Career",
+    "education": "Education",
+    "projects": "Projects",
+    "more": "More",
+    "contact": "Contact",
+    "aria_main": "Main navigation",
+    "aria_mobile": "Mobile navigation",
+    "aria_open_menu": "Open menu",
+    "aria_close_menu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "CPA · Humanise Collective · Montréal",
+    "name_first": "William",
+    "name_last": "Séguin",
+    "quote": "I'm a CPA & digital creator with a passion for numbers and operational efficiency.",
+    "mission": "My mission is to support people and creativity by delivering financial clarity and operational flow, without getting in the way of the magic.",
+    "languages_label": "FR · EN · ES · IT",
+    "cta_contact": "Contact Me",
+    "cta_work": "See My Work",
+    "headshot_alt": "William Séguin — professional headshot"
+  },
+  "career": {
+    "section_label": "Experience",
+    "section_heading": "Career",
+    "roles": {
+      "humanise": {
+        "title": "Assistant Financial Controller",
+        "company": "Humanise Collective",
+        "dates": "May 2025 – Present",
+        "bullets": [
+          "Right hand to financial management for an 8-agency marketing communications group; consolidated monthly reporting and budget variance analysis.",
+          "Automation of reports and management tools via PowerQuery and Google Apps Script/Macros.",
+          "Supervision of AP/AR, treasury, inter-company billing, and fee invoicing. Technical env: NetSuite, Excel (PowerQuery), Google Suite."
+        ]
+      },
+      "signe_local": {
+        "title": "Chief Accountant",
+        "company": "Signé Local",
+        "dates": "Sep 2023 – May 2025",
+        "bullets": [
+          "Financial oversight for 4 physical stores and an eCommerce platform.",
+          "Regular monitoring of inventory, financial forecasting, and reconciliation of funds.",
+          "Process improvements to maintain operational efficiency and support strategic growth."
+        ]
+      },
+      "belvoir": {
+        "title": "Financial Controller",
+        "company": "Le Belvoir",
+        "dates": "Apr 2023 – May 2025",
+        "bullets": [
+          "Bookkeeping, financial transaction recording, and reconciliation.",
+          "Budgeting and forecasting processes; financial projections to support company growth.",
+          "Tax planning: identifying opportunities for savings and ensuring compliance with local regulations."
+        ]
+      },
+      "renovco": {
+        "title": "Project Accountant",
+        "company": "Renovco",
+        "dates": "Sep 2022 – Apr 2023",
+        "bullets": [
+          "Project-based accounting support for restoration and renovation initiatives.",
+          "Follow-ups with project managers to ensure alignment with budgets and cost tracking.",
+          "Managed A/R and A/P cycles."
+        ]
+      },
+      "elections_canada": {
+        "title": "Central Poll Supervisor",
+        "company": "Elections Canada",
+        "dates": "Oct 2018 – Ongoing",
+        "bullets": [
+          "Ongoing civic mandate; leads teams of 8 as polling supervisor for federal and provincial elections.",
+          "Appointed supervisor after proving as clerk and Deputy Returning Officer.",
+          "Ensures confidentiality of the vote and compliance with electoral law."
+        ]
+      },
+      "costco": {
+        "title": "Customer Service & Sales",
+        "company": "Costco Wholesale",
+        "dates": "Apr 2020 – Aug 2020",
+        "bullets": [
+          "Featured on Membership dept. Top Employees board for credit card and membership conversion performance.",
+          "Repeatedly selected to drive new memberships over standard cashier duties."
+        ]
+      },
+      "public_outreach": {
+        "title": "Fundraiser",
+        "company": "Public Outreach Fundraising",
+        "dates": "Jan 2018 – May 2020",
+        "bullets": [
+          "Door-to-door recurring donation campaigns for Doctors Without Borders, Greenpeace, UNICEF, Amnesty International, and CARE.",
+          "Developed key communication and persuasion skills through representing world-leading NGOs."
+        ]
+      }
+    }
+  },
+  "education": {
+    "section_label": "Academic Background",
+    "section_heading": "Education",
+    "schools": {
+      "sherbrooke": {
+        "institution": "Université de Sherbrooke",
+        "credential": "DESS — Specialized Graduate Diploma in Accounting",
+        "dates": "Sep 2023 – Sep 2025",
+        "notes": "CPA Common Final Exam preparation.",
+        "highlight": "CPA Québec — December 2025"
+      },
+      "hec": {
+        "institution": "HEC Montréal",
+        "credential": "BBA — Bachelor of Business Administration",
+        "dates": "2018 – 2023",
+        "notes": "Major: Accounting. Trilingual program (FR / EN / ES)."
+      },
+      "uc3m": {
+        "institution": "Universidad Carlos III de Madrid",
+        "credential": "Student Exchange Program",
+        "dates": "Jan 2022 – Jul 2022",
+        "notes": "Semester exchange — Madrid, Spain."
+      },
+      "jean_giono": {
+        "institution": "Jean Giono Intl. School of Turin",
+        "credential": "Baccalauréat Scientifique",
+        "dates": "2014 – 2017",
+        "notes": "Math specialization. Grade: 18.67/20 (≈ 4.3 GPA). Trilingual (FR/EN/ES). Student rep on Board of Directors (2016–17); VP of CVL committee (2014–16)."
+      }
+    }
+  },
+  "projects": {
+    "section_label": "Ventures",
+    "section_heading": "Projects",
+    "qcheck": {
+      "title": "Q-Check",
+      "description": "A digital coat-check solution focused on payment simplicity and operational flow for busy event venues. Reimagining the coat-check experience end-to-end — from QR-based ticketing to seamless payments.",
+      "cta": "Visit qcheck.ca",
+      "tags": ["FinTech", "SaaS", "Hospitality", "Entrepreneurship"]
+    },
+    "moretti_radio": {
+      "title": "Moretti Radio",
+      "description": "Episodic DJ mix series under the alias Chill Will. Afro-Balearic Chic — blending Afro House, Nu-Disco, French Touch and Melodic Electronic for corporate events and restaurant residencies. Sophisticated frictionless listening.",
+      "cta": "Listen on SoundCloud",
+      "tags": ["Music", "DJ", "Corporate Events", "Restaurants"]
+    }
+  },
+  "more": {
+    "section_label": "Beyond Finance",
+    "section_heading": "More",
+    "dj": {
+      "title": "DJ Chill Will",
+      "body": "Outside of finance, I perform as DJ Chill Will for corporate events and restaurant residencies. Host of Moretti Radio — Afro-Balearic Chic, sophisticated frictionless listening.",
+      "link_label": "Listen on SoundCloud"
+    },
+    "wellness": {
+      "title": "Discipline & Wellness",
+      "body": "I start every day at 6 a.m. with meditation and cold exposure. Yoga and strength training keep me focused and energized. Competed in the 24h Tremblant endurance event for children's foundations."
+    },
+    "poetry": {
+      "title": "Prix Poésie en Liberté — 2nd Prize",
+      "body": "2nd prize in the Prix Poésie en Liberté (Nov 2016) — an international French-language poetry competition run under the French Ministry of National Education, with 100,000+ entries annually from ages 15–25 across all countries.",
+      "link_label": "Read the poem"
+    },
+    "global": {
+      "title": "Global Perspective",
+      "body": "Quadrilingual (FR/EN/ES/IT), EU citizen, family ties in Switzerland. Studied in Turin, Montreal, and Madrid. Open to professional exchanges within the Swiss and European market."
+    }
+  },
+  "contact": {
+    "section_label": "Get in Touch",
+    "section_heading": "Contact",
+    "intro": "Whether it's a professional opportunity, a collaboration, or just a conversation — I'd love to hear from you.",
+    "form": {
+      "label_name": "Name",
+      "label_email": "Email",
+      "label_subject": "Subject",
+      "label_message": "Message",
+      "placeholder_name": "William Séguin",
+      "placeholder_email": "hello@company.com",
+      "placeholder_subject": "Let's collaborate",
+      "placeholder_message": "Tell me what's on your mind...",
+      "btn_send": "Send Message",
+      "btn_sending": "Sending…",
+      "msg_success": "Message sent! I'll get back to you soon.",
+      "msg_error_generic": "Unexpected error. Please try again."
+    },
+    "sidebar": {
+      "heading": "Direct Contact",
+      "location": "Montréal, Québec, Canada · Open to Swiss/EU market"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} William Séguin. All rights reserved.",
+    "aria_linkedin": "LinkedIn",
+    "aria_github": "GitHub",
+    "aria_instagram": "Instagram"
+  },
+  "pdf": {
+    "document_title": "William Seguin - Resume",
+    "section_contact": "Contact",
+    "section_education": "Education",
+    "section_skills": "Skills",
+    "section_achievements": "Achievements",
+    "section_profile": "Profile",
+    "section_experience": "Work Experience",
+    "headline": "CPA · Assistant Financial Controller",
+    "profile_quote": "\"I'm a CPA and Assistant Financial Controller who operates at the intersection of accounting and systems architecture. My north is the total obliteration of legacy manual workflows.\"",
+    "profile_sub": "William Seguin translates fluently between IT (JSON) and finance (GAAP), and believes removing tedious manual work is a prerequisite for strong company culture. Holding EU citizenship and family ties in Switzerland, he maintains a natural connection to the Swiss and European market.",
+    "skills": {
+      "systems_label": "Systems & Tools",
+      "systems_body": "Microsoft Power Query · Google Apps Script · NetSuite · Microsoft Excel",
+      "accounting_label": "Accounting",
+      "accounting_body": "Multi-entity accounting · Variance analysis · Financial reporting · Tax compliance · Budget preparation · Treasury management",
+      "process_label": "Process",
+      "process_body": "Process automation · Process modeling · Strategic planning · Project management",
+      "languages_label": "Languages",
+      "languages_body": "French (native) · Italian (native) · English (professional) · Spanish (professional)"
+    },
+    "achievements": {
+      "poetry_title": "Prix Poesie en Liberte - 2nd Prize",
+      "poetry_body": "International French-language poetry competition (Nov 2016), French Ministry of Education. 100,000+ entries from ages 15-25 across all countries.",
+      "cpa_title": "CPA Quebec - December 2025",
+      "cpa_body": "Certified Public Accountant designation, CPA Quebec."
+    },
+    "download_aria": "Download PDF résumé"
+  }
+}

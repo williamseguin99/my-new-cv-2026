@@ -1,0 +1,256 @@
+{
+  "_phase1_notes": "ES dictionary — Phase 1. No Spanish content found in LinkedIn CSV export. All profile content keys are MISSING. UI keys are manually translated (flagged with _ui_translated:true).",
+  "meta": {
+    "lang_name": "Español",
+    "lang_code": "es",
+    "_ui_translated": true
+  },
+  "nav": {
+    "career": "Trayectoria",
+    "education": "Formación",
+    "projects": "Proyectos",
+    "more": "Más",
+    "contact": "Contacto",
+    "aria_main": "Navegación principal",
+    "aria_mobile": "Navegación móvil",
+    "aria_open_menu": "Abrir menú",
+    "aria_close_menu": "Cerrar menú",
+    "_ui_translated": true
+  },
+  "hero": {
+    "eyebrow": "MISSING — not found in LinkedIn export",
+    "name_first": "William",
+    "name_last": "Séguin",
+    "quote": "MISSING — not found in LinkedIn export",
+    "mission": "MISSING — not found in LinkedIn export",
+    "languages_label": "FR · EN · ES · IT",
+    "cta_contact": "Contáctame",
+    "cta_work": "Ver mi trayectoria",
+    "headshot_alt": "William Séguin — foto profesional",
+    "_ui_translated": true
+  },
+  "career": {
+    "section_label": "Experiencia",
+    "section_heading": "Trayectoria",
+    "_ui_translated": true,
+    "roles": {
+      "humanise": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Humanise Collective",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "signe_local": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Signé Local",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "belvoir": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Le Belvoir",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "renovco": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Renovco",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "elections_canada": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Elections Canada",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "costco": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Costco Wholesale",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      },
+      "public_outreach": {
+        "title": "MISSING — not found in LinkedIn export",
+        "company": "Public Outreach Fundraising",
+        "dates": "MISSING — not found in LinkedIn export",
+        "bullets": [
+          "MISSING — not found in LinkedIn export",
+          "MISSING — not found in LinkedIn export"
+        ]
+      }
+    }
+  },
+  "education": {
+    "section_label": "Formación académica",
+    "section_heading": "Formación",
+    "_ui_translated": true,
+    "schools": {
+      "sherbrooke": {
+        "institution": "Université de Sherbrooke",
+        "credential": "MISSING — not found in LinkedIn export",
+        "dates": "MISSING — not found in LinkedIn export",
+        "notes": "MISSING — not found in LinkedIn export",
+        "highlight": "CPA Québec — Diciembre 2025"
+      },
+      "hec": {
+        "institution": "HEC Montréal",
+        "credential": "MISSING — not found in LinkedIn export",
+        "dates": "MISSING — not found in LinkedIn export",
+        "notes": "MISSING — not found in LinkedIn export"
+      },
+      "uc3m": {
+        "institution": "Universidad Carlos III de Madrid",
+        "credential": "MISSING — not found in LinkedIn export",
+        "dates": "MISSING — not found in LinkedIn export",
+        "notes": "MISSING — not found in LinkedIn export"
+      },
+      "jean_giono": {
+        "institution": "Escuela Internacional Jean Giono de Turín",
+        "credential": "MISSING — not found in LinkedIn export",
+        "dates": "MISSING — not found in LinkedIn export",
+        "notes": "MISSING — not found in LinkedIn export"
+      }
+    }
+  },
+  "projects": {
+    "section_label": "Iniciativas",
+    "section_heading": "Proyectos",
+    "_ui_translated": true,
+    "qcheck": {
+      "title": "Q-Check",
+      "description": "MISSING — not found in LinkedIn export",
+      "cta": "Visitar qcheck.ca",
+      "tags": ["FinTech", "SaaS", "Hostelería", "Emprendimiento"],
+      "_cta_ui_translated": true
+    },
+    "moretti_radio": {
+      "title": "Moretti Radio",
+      "description": "MISSING — not found in LinkedIn export",
+      "cta": "Escuchar en SoundCloud",
+      "tags": ["Música", "DJ", "Eventos corporativos", "Restaurantes"],
+      "_cta_ui_translated": true
+    }
+  },
+  "more": {
+    "section_label": "Más allá de las finanzas",
+    "section_heading": "Más",
+    "_ui_translated": true,
+    "dj": {
+      "title": "DJ Chill Will",
+      "body": "MISSING — not found in LinkedIn export",
+      "link_label": "Escuchar en SoundCloud",
+      "_link_ui_translated": true
+    },
+    "wellness": {
+      "title": "Disciplina y Bienestar",
+      "body": "MISSING — not found in LinkedIn export",
+      "_title_ui_translated": true
+    },
+    "poetry": {
+      "title": "Prix Poésie en Liberté — 2.° Premio",
+      "body": "MISSING — not found in LinkedIn export",
+      "_note": "Honor description in LinkedIn export is in French only (author's native language). No Spanish version found.",
+      "link_label": "Leer el poema",
+      "_link_ui_translated": true
+    },
+    "global": {
+      "title": "Perspectiva global",
+      "body": "MISSING — not found in LinkedIn export",
+      "_title_ui_translated": true
+    }
+  },
+  "contact": {
+    "section_label": "Ponte en contacto",
+    "section_heading": "Contacto",
+    "intro": "MISSING — not found in LinkedIn export",
+    "_ui_translated": true,
+    "form": {
+      "label_name": "Nombre",
+      "label_email": "Correo electrónico",
+      "label_subject": "Asunto",
+      "label_message": "Mensaje",
+      "placeholder_name": "William Séguin",
+      "placeholder_email": "hola@empresa.com",
+      "placeholder_subject": "Colaboremos juntos",
+      "placeholder_message": "Cuéntame qué tienes en mente…",
+      "btn_send": "Enviar mensaje",
+      "btn_sending": "Enviando…",
+      "msg_success": "¡Mensaje enviado! Te responderé pronto.",
+      "msg_error_generic": "Error inesperado. Por favor, inténtalo de nuevo.",
+      "_ui_translated": true
+    },
+    "sidebar": {
+      "heading": "Contacto directo",
+      "location": "Montréal, Québec, Canadá · Abierto al mercado suizo/europeo",
+      "_ui_translated": true
+    }
+  },
+  "footer": {
+    "copyright": "© {year} William Séguin. Todos los derechos reservados.",
+    "aria_linkedin": "LinkedIn",
+    "aria_github": "GitHub",
+    "aria_instagram": "Instagram",
+    "_ui_translated": true
+  },
+  "pdf": {
+    "document_title": "William Seguin - Currículum Vitae",
+    "section_contact": "Contacto",
+    "section_education": "Formación",
+    "section_skills": "Habilidades",
+    "section_achievements": "Logros",
+    "section_profile": "Perfil",
+    "section_experience": "Experiencia profesional",
+    "headline": "CPA · Controller Financiero Adjunto",
+    "_headline_ui_translated": true,
+    "profile_quote": "MISSING — not found in LinkedIn export",
+    "profile_sub": "MISSING — not found in LinkedIn export",
+    "skills": {
+      "systems_label": "Sistemas y Herramientas",
+      "systems_body": "Microsoft Power Query · Google Apps Script · NetSuite · Microsoft Excel",
+      "_systems_note": "Tool names are language-agnostic; section label is UI-translated",
+      "accounting_label": "Contabilidad",
+      "accounting_body": "MISSING — not found in LinkedIn export",
+      "_accounting_note": "Skills.csv exported in French only; no Spanish version found",
+      "process_label": "Procesos",
+      "process_body": "MISSING — not found in LinkedIn export",
+      "_process_note": "Skills.csv exported in French only; no Spanish version found",
+      "languages_label": "Idiomas",
+      "languages_body": "Francés (nativo) · Italiano (nativo) · Inglés (profesional) · Español (profesional)",
+      "_languages_source": "LinkedIn Languages.csv — language names translated to Spanish; proficiency from export"
+    },
+    "achievements": {
+      "poetry_title": "Prix Poésie en Liberté — 2.° Premio",
+      "poetry_body": "MISSING — not found in LinkedIn export",
+      "_poetry_note": "LinkedIn Honors.csv description is in French only. No Spanish version found.",
+      "cpa_title": "CPA Québec — Diciembre 2025",
+      "cpa_body": "MISSING — not found in LinkedIn export",
+      "_cpa_ui_translated": true
+    },
+    "download_aria": "Descargar CV en PDF",
+    "_ui_translated": true
+  }
+}
