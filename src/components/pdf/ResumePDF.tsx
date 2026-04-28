@@ -10,8 +10,25 @@ import {
 import type { Dictionary } from "@/i18n/types";
 
 // ─── Font registration ─────────────────────────────────────────────────────
-const FONT_FAMILY = "Helvetica";
-const FONT_BOLD = "Helvetica-Bold";
+const QUICKSAND_REGULAR_TTF =
+  "https://cdn.jsdelivr.net/fontsource/fonts/quicksand@latest/latin-400-normal.ttf";
+const QUICKSAND_BOLD_TTF =
+  "https://cdn.jsdelivr.net/fontsource/fonts/quicksand@latest/latin-700-normal.ttf";
+
+try {
+  Font.register({
+    family: "Quicksand",
+    fonts: [
+      { src: QUICKSAND_REGULAR_TTF, fontWeight: 400 },
+      { src: QUICKSAND_BOLD_TTF, fontWeight: 700 },
+    ],
+  });
+} catch {
+  // If font registration fails (e.g. during edge runtimes), react-pdf will fall back.
+}
+
+const FONT_FAMILY = "Quicksand";
+const FONT_BOLD = "Quicksand";
 
 Font.registerHyphenationCallback((word) => [word]);
 
