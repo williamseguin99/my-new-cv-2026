@@ -2,7 +2,7 @@
 
 import { FadeInSection, FadeInCard } from "@/components/motion-wrapper";
 import { useLanguage } from "@/context/language-context";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface FactConfig {
   key: "dj" | "wellness" | "poetry" | "global";
@@ -55,6 +55,29 @@ function ExternalIcon() {
 export function More() {
   const { dict } = useLanguage();
   const [poetryExpanded, setPoetryExpanded] = useState(false);
+  const [poetryHasOverflow, setPoetryHasOverflow] = useState(false);
+  const poetryBodyRef = useRef<HTMLParagraphElement | null>(null);
+
+  useEffect(() => {
+    const el = poetryBodyRef.current;
+    if (!el) return;
+
+    const check = () => {
+      if (poetryExpanded) return;
+      setPoetryHasOverflow(el.scrollHeight > el.clientHeight + 1);
+    };
+
+    check();
+
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(check) : undefined;
+    ro?.observe(el);
+    window.addEventListener("resize", check);
+
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener("resize", check);
+    };
+  }, [dict.more.poetry.body, poetryExpanded]);
 
   return (
     <section id="more" className="section-padding bg-contrast text-base">
@@ -76,6 +99,7 @@ export function More() {
                   <div className="flex-1">
                     <h3 className="font-bold text-lg text-base mb-2">{fact.title}</h3>
                     <p
+                      ref={isPoetry ? poetryBodyRef : undefined}
                       className={[
                         "text-sm text-base/65 leading-relaxed",
                         isPoetry && !poetryExpanded ? "max-h-24 overflow-hidden" : "",
@@ -100,13 +124,15 @@ export function More() {
                         <span />
                       )}
 
-                      <button
-                        type="button"
-                        onClick={() => setPoetryExpanded((v) => !v)}
-                        className="inline-flex items-center text-xs font-bold text-accent hover:underline"
-                      >
-                        {poetryExpanded ? dict.more.read_less : dict.more.read_more}
-                      </button>
+                      {poetryHasOverflow ? (
+                        <button
+                          type="button"
+                          onClick={() => setPoetryExpanded((v) => !v)}
+                          className="inline-flex items-center text-xs font-bold text-accent hover:underline"
+                        >
+                          {poetryExpanded ? dict.more.read_less : dict.more.read_more}
+                        </button>
+                      ) : null}
                     </div>
                   ) : (
                     config.link &&
