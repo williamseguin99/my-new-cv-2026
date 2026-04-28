@@ -10,8 +10,8 @@ import {
 import type { Dictionary } from "@/i18n/types";
 
 // ─── Font registration ─────────────────────────────────────────────────────
-let FONT_FAMILY = "Helvetica";
-let FONT_BOLD = "Helvetica-Bold";
+const FONT_FAMILY = "Helvetica";
+const FONT_BOLD = "Helvetica-Bold";
 
 Font.registerHyphenationCallback((word) => [word]);
 
