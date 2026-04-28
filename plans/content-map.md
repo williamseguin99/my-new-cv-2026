@@ -125,8 +125,7 @@ William Séguin is a CPA and Assistant Financial Controller who operates at the 
 | `William_OG.jpg` | `legacy-site/images/` | `public/images/` | ✅ Social/OG meta image |
 | Full favicon set | `legacy-site/images/favicon/` | `public/favicon/` | ✅ Carry forward |
 | `logo.png` | `public/` | `public/` | ✅ Already in place |
-| `AttenRoundNewRegular.otf` | `legacy-site/Fonts/` | `public/fonts/` | ✅ Primary typeface |
-| `AttenRoundNewBold.otf` | `legacy-site/Fonts/` | `public/fonts/` | ✅ Bold weight |
+| Quicksand (Google Fonts) | — | Loaded via Google Fonts stylesheet | ✅ Primary typeface |
 
 ---
 
@@ -137,7 +136,7 @@ William Séguin is a CPA and Assistant Financial Controller who operates at the 
 | Accent | `#ffba7a` | Warm orange — highlights, borders, hover states |
 | Light | `#ebe6e6` | Off-white — light backgrounds, light text on dark |
 | Dark | `#5e0b15` | Deep burgundy — dark backgrounds, primary headings |
-| Font | Atten Round New | Primary typeface (Regular 400 + Bold 700) |
+| Font | Quicksand | Primary typeface (300–700) |
 | Content max-width | 1000px | Page content column |
 | Section layout | 33% label / 67% content | Horizontal section pattern |
 

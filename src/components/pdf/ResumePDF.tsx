@@ -13,23 +13,6 @@ import type { Dictionary } from "@/i18n/types";
 let FONT_FAMILY = "Helvetica";
 let FONT_BOLD = "Helvetica-Bold";
 
-if (typeof window !== "undefined") {
-  try {
-    const base = window.location.origin;
-    Font.register({
-      family: "AttenRoundNew",
-      fonts: [
-        { src: `${base}/fonts/AttenRoundNewRegular.otf`, fontWeight: 400 },
-        { src: `${base}/fonts/AttenRoundNewBold.otf`, fontWeight: 700 },
-      ],
-    });
-    FONT_FAMILY = "AttenRoundNew";
-    FONT_BOLD = "AttenRoundNew";
-  } catch {
-    // Fallback to built-in Helvetica
-  }
-}
-
 Font.registerHyphenationCallback((word) => [word]);
 
 // ─── Emoji sanitizer ──────────────────────────────────────────────────────

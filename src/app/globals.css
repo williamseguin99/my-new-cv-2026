@@ -29,8 +29,12 @@
   --color-destructive:         var(--destructive);
 
   /* Typography */
-  --font-sans: var(--font-atten);
-  --font-heading: var(--font-atten);
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
+  --font-heading: "Quicksand", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Radius scale */
