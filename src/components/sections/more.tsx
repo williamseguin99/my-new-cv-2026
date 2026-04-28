@@ -2,6 +2,7 @@
 
 import { FadeInSection, FadeInCard } from "@/components/motion-wrapper";
 import { useLanguage } from "@/context/language-context";
+import { useState } from "react";
 
 interface FactConfig {
   key: "dj" | "wellness" | "poetry" | "global";
@@ -53,6 +54,7 @@ function ExternalIcon() {
 
 export function More() {
   const { dict } = useLanguage();
+  const [poetryExpanded, setPoetryExpanded] = useState(false);
 
   return (
     <section id="more" className="section-padding bg-contrast text-base">
@@ -66,24 +68,59 @@ export function More() {
           {FACT_CONFIGS.map((config, i) => {
             const fact = dict.more[config.key];
             const linkLabel = "link_label" in fact ? (fact.link_label as string) : undefined;
+            const isPoetry = config.key === "poetry";
             return (
               <FadeInCard key={config.key} delay={i * 0.08}>
                 <div className="group bg-base/5 border border-base/15 rounded-2xl p-6 hover:border-accent/50 hover:bg-base/8 transition-all duration-300 h-full flex flex-col gap-4">
                   <div className="text-3xl" aria-hidden="true">{config.emoji}</div>
                   <div className="flex-1">
                     <h3 className="font-bold text-lg text-base mb-2">{fact.title}</h3>
-                    <p className="text-sm text-base/65 leading-relaxed">{fact.body}</p>
-                  </div>
-                  {config.link && linkLabel && (
-                    <a
-                      href={config.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline self-start"
+                    <p
+                      className={[
+                        "text-sm text-base/65 leading-relaxed",
+                        isPoetry && !poetryExpanded ? "max-h-24 overflow-hidden" : "",
+                      ].join(" ")}
                     >
-                      {linkLabel}
-                      <ExternalIcon />
-                    </a>
+                      {fact.body}
+                    </p>
+                  </div>
+                  {isPoetry ? (
+                    <div className="mt-auto flex items-center justify-between gap-4">
+                      {config.link && linkLabel ? (
+                        <a
+                          href={config.link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline"
+                        >
+                          {linkLabel}
+                          <ExternalIcon />
+                        </a>
+                      ) : (
+                        <span />
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => setPoetryExpanded((v) => !v)}
+                        className="inline-flex items-center text-xs font-bold text-accent hover:underline"
+                      >
+                        {poetryExpanded ? dict.more.read_less : dict.more.read_more}
+                      </button>
+                    </div>
+                  ) : (
+                    config.link &&
+                    linkLabel && (
+                      <a
+                        href={config.link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-accent hover:underline self-start"
+                      >
+                        {linkLabel}
+                        <ExternalIcon />
+                      </a>
+                    )
                   )}
                 </div>
               </FadeInCard>
