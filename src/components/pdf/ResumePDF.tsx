@@ -43,6 +43,20 @@ function sanitize(str: string): string {
     .trim();
 }
 
+function formatEducationNote(key: (typeof SCHOOL_KEYS)[number], note?: string) {
+  if (!note) return "";
+  if (key !== "jean_giono") return note;
+
+  return note
+    // Remove any GPA parenthetical, e.g. "(≈ 4.3 GPA)" or "(H 4.3 GPA)"
+    .replace(/\s*\([^)]*GPA[^)]*\)\.?/gi, ".")
+    // Remove committee date ranges in parentheses, e.g. "(2016–17)"
+    .replace(/\s*\(\d{4}\s*[–-]\s*\d{2}\)\b/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+\./g, ".")
+    .trim();
+}
+
 // ─── Color tokens ─────────────────────────────────────────────────────────
 const C = {
   primary: "#5e0b15",
@@ -327,8 +341,6 @@ const ROLE_KEYS = [
   "belvoir",
   "renovco",
   "elections_canada",
-  "costco",
-  "public_outreach",
 ] as const;
 
 const SCHOOL_KEYS = ["sherbrooke", "hec", "uc3m", "jean_giono"] as const;
@@ -360,13 +372,12 @@ function LeftColumn({ dict }: { dict: Dictionary }) {
     { label: dict.pdf.skills.systems_label, body: dict.pdf.skills.systems_body },
     { label: dict.pdf.skills.accounting_label, body: dict.pdf.skills.accounting_body },
     { label: dict.pdf.skills.process_label, body: dict.pdf.skills.process_body },
-    { label: dict.pdf.skills.languages_label, body: dict.pdf.skills.languages_body },
   ];
 
   return (
     <View style={S.leftCol}>
       {/* Name */}
-      <Text style={S.name}>{"William\nSeguin"}</Text>
+      <Text style={S.name}>{"William Seguin"}</Text>
       <Text style={S.headline}>{sanitize(dict.pdf.headline)}</Text>
 
       {/* Contact */}
@@ -407,7 +418,7 @@ function LeftColumn({ dict }: { dict: Dictionary }) {
       <SectionHeading label={dict.pdf.section_education} />
       {SCHOOL_KEYS.map((key) => {
         const school = dict.education.schools[key];
-        const note = school.notes as string;
+        const note = formatEducationNote(key, school.notes as string | undefined);
         return (
           <View key={key} style={S.eduEntry}>
             <Text style={S.eduInstitution}>{sanitize(school.institution)}</Text>
@@ -436,7 +447,7 @@ function LeftColumn({ dict }: { dict: Dictionary }) {
           {sanitize(dict.pdf.achievements.poetry_title)}
         </Text>
         <Text style={S.achievementBody}>
-          {sanitize(dict.pdf.achievements.poetry_body)}
+          {"International French-language poetry competition (Nov 2016)"}
         </Text>
       </View>
       <View style={S.achievementEntry}>
