@@ -154,6 +154,13 @@
       "cta": "Écouter sur SoundCloud",
       "tags": ["Musique", "DJ", "Événements d'entreprise", "Restaurants"],
       "_cta_ui_translated": true
+    },
+    "meditation_mtl": {
+      "title": "Meditation MTL",
+      "description": "Un cercle de méditation hebdomadaire en présentiel à Montréal pour toute personne attirée par la méditation, la non-dualité ou l'éveil. Pas de professeur, pas de doctrine — juste un silence partagé chaque mardi, puis un temps pour intégrer.",
+      "cta": "Visiter meditationmtl.com",
+      "tags": ["Communauté", "Méditation", "Montréal", "Non-dualité"],
+      "_cta_ui_translated": true
     }
   },
   "more": {

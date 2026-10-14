@@ -5,7 +5,7 @@ import { FadeInSection, FadeInCard } from "@/components/motion-wrapper";
 import { useLanguage } from "@/context/language-context";
 
 interface ProjectConfig {
-  key: "qcheck" | "moretti_radio";
+  key: "qcheck" | "moretti_radio" | "meditation_mtl";
   url?: string;
   image: string;
   icon?: string;
@@ -24,6 +24,11 @@ const PROJECT_CONFIGS: ProjectConfig[] = [
     key: "moretti_radio",
     url: "https://soundcloud.com/morettiradio",
     image: "/moretti-radio-cover-1.png",
+  },
+  {
+    key: "meditation_mtl",
+    url: "https://meditationmtl.com",
+    image: "/meditation-mtl-hero.webp",
   },
 ];
 
@@ -59,7 +64,7 @@ export function Projects() {
           <h2 className="section-heading mb-12">{dict.projects.section_heading}</h2>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PROJECT_CONFIGS.map((config, i) => {
             const project = dict.projects[config.key];
             const tags = project.tags as string[];
@@ -72,7 +77,7 @@ export function Projects() {
                       src={config.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className={`object-cover group-hover:scale-105 transition-transform duration-500 ${config.imageAlign === "top" ? "object-top" : config.imageAlign === "bottom" ? "object-bottom" : "object-center"}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />

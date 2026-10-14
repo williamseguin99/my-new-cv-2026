@@ -154,6 +154,13 @@
       "cta": "Ascolta su SoundCloud",
       "tags": ["Musica", "DJ", "Eventi aziendali", "Ristoranti"],
       "_cta_ui_translated": true
+    },
+    "meditation_mtl": {
+      "title": "Meditation MTL",
+      "description": "Un cerchio settimanale di meditazione dal vivo a Montréal per chi è attratto dalla meditazione, dalla non-dualità o dal risveglio. Nessun insegnante, nessuna dottrina — solo un silenzio condiviso ogni martedì e uno spazio per integrare dopo.",
+      "cta": "Visita meditationmtl.com",
+      "tags": ["Comunità", "Meditazione", "Montréal", "Non-dualità"],
+      "_cta_ui_translated": true
     }
   },
   "more": {
