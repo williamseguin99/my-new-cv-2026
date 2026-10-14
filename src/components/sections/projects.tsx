@@ -28,7 +28,7 @@ const PROJECT_CONFIGS: ProjectConfig[] = [
   {
     key: "meditation_mtl",
     url: "https://meditationmtl.com",
-    image: "/meditation-mtl-hero.webp",
+    image: "/meditation-mtl-circle.webp",
   },
 ];
 
