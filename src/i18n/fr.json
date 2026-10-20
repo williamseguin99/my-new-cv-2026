@@ -35,10 +35,20 @@
     "section_heading": "Carrière",
     "_ui_translated": true,
     "roles": {
+      "alan_allman": {
+        "title": "Contrôleur adjoint (contrôleur divisionnaire par intérim)",
+        "company": "Alan Allman Associates (WE+ Canada)",
+        "dates": "juin 2026 – présent",
+        "bullets": [
+          "Contrôle financier complet de la division confié dès le deuxième mois ; supervision de 2 techniciens comptables et collaboration avec une douzaine de fonctions de l'entreprise.",
+          "Cycle comptable complet : fin de mois, régularisations, paie, taxes de vente, inter-compagnies et prévisions de trésorerie sur 13 semaines glissantes.",
+          "Processus ramenés de plusieurs jours à quelques heures (flux agentique d'encaissements clients, Power Query, rapports ERP sur mesure) ; contrôles antifraude aux comptes payables."
+        ]
+      },
       "humanise": {
         "title": "Contrôleur Financier Adjoint",
         "company": "Humanise Collective",
-        "dates": "mai 2025 – présent",
+        "dates": "mai 2025 – mai 2026",
         "bullets": [
           "Bras droit de la direction financière pour la supervision des opérations d'un groupe de 8 agences en communications marketing ; production des résultats financiers mensuels consolidés et explication des écarts budgétaires.",
           "Automatisation des rapports et amélioration des outils de gestion via l'utilisation avancée de PowerQuery et Google Scripts/Macros.",

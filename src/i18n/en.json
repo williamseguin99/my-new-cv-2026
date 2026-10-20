@@ -30,10 +30,20 @@
     "section_label": "Experience",
     "section_heading": "Career",
     "roles": {
+      "alan_allman": {
+        "title": "Assistant Controller (Acting Divisional Controller)",
+        "company": "Alan Allman Associates (WE+ Canada)",
+        "dates": "Jun 2026 – Present",
+        "bullets": [
+          "Entrusted with the division's full controllership one month in; supervising 2 accounting technicians and partnering with a dozen roles company-wide.",
+          "Full accounting cycle: month-end close, accruals, payroll, sales tax, intercompany and rolling 13-week cash flow forecasts.",
+          "Cut processes from days to hours (agentic collections workflow, Power Query, ERP reports); added AP fraud controls."
+        ]
+      },
       "humanise": {
         "title": "Assistant Financial Controller",
         "company": "Humanise Collective",
-        "dates": "May 2025 – Present",
+        "dates": "May 2025 – May 2026",
         "bullets": [
           "Right hand to financial management for an 8-agency marketing communications group; consolidated monthly reporting and budget variance analysis.",
           "Automation of reports and management tools via PowerQuery and Google Apps Script/Macros.",

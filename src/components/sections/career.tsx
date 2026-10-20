@@ -13,6 +13,11 @@ interface RoleConfig {
 
 const ROLE_CONFIGS: RoleConfig[] = [
   {
+    key: "alan_allman",
+    logo: "/alan-allman-icon.jpg",
+    image: "/alan-allman-image.jpg",
+  },
+  {
     key: "humanise",
     logo: "/humanise-icon.jpg",
     image: "/humanise-image.webp",
