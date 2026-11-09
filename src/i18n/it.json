@@ -19,7 +19,7 @@
     "_ui_translated": true
   },
   "hero": {
-    "eyebrow": "CPA · Alan Allman Associates (WE+ Canada) · Montréal",
+    "eyebrow": "CPA · Collettivo Humanise · Montréal",
     "name_first": "William",
     "name_last": "Séguin",
     "quote": "Sono un CPA e creatore digitale con una passione per i numeri e l'efficienza operativa.",
@@ -35,20 +35,10 @@
     "section_heading": "Carriera",
     "_ui_translated": true,
     "roles": {
-      "alan_allman": {
-        "title": "Vice Controller (Controller di divisione ad interim)",
-        "company": "Alan Allman Associates (WE+ Canada)",
-        "dates": "giu. 2026 – presente",
-        "bullets": [
-          "Affidata l'intera funzione di controller della divisione dopo un solo mese; supervisione di 2 tecnici contabili e collaborazione con una dozzina di funzioni aziendali.",
-          "Ciclo contabile completo: chiusure mensili, ratei e risconti, paghe, imposte sulle vendite, intercompany e previsioni di cassa a 13 settimane.",
-          "Processi ridotti da giorni a ore (flusso agentico per gli incassi clienti, Power Query, report ERP personalizzati); controlli antifrode sulla contabilità fornitori."
-        ]
-      },
       "humanise": {
         "title": "Vice Controller",
         "company": "Humanise Collective",
-        "dates": "mag. 2025 – mag. 2026",
+        "dates": "mag. 2025 – presente",
         "bullets": [
           "Braccio destro della direzione finanziaria per la supervisione delle operazioni di un gruppo multi-entità di 8 agenzie di comunicazione marketing; produzione dei risultati finanziari mensili consolidati e spiegazione degli scostamenti dal budget.",
           "Automazione dei report e miglioramento degli strumenti di gestione attraverso l'uso avanzato di PowerQuery e Google Scripts/Macros.",

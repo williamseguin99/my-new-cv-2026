@@ -19,7 +19,7 @@
     "_ui_translated": true
   },
   "hero": {
-    "eyebrow": "CPA · Alan Allman Associates (WE+ Canada) · Montréal",
+    "eyebrow": "CPA · Colectivo Humanise · Montréal",
     "name_first": "William",
     "name_last": "Séguin",
     "quote": "Soy CPA y creador digital con pasión por los números y la eficiencia operativa.",
@@ -35,20 +35,10 @@
     "section_heading": "Trayectoria",
     "_ui_translated": true,
     "roles": {
-      "alan_allman": {
-        "title": "Subcontralor (Contralor divisional interino)",
-        "company": "Alan Allman Associates (WE+ Canada)",
-        "dates": "jun. 2026 – presente",
-        "bullets": [
-          "Contraloría completa de la división asignada al mes de la incorporación; supervisión de 2 técnicos contables y colaboración con una docena de áreas de la empresa.",
-          "Ciclo contable completo: cierre mensual, devengos, nómina, impuestos sobre ventas, intercompañía y flujo de caja a 13 semanas móviles.",
-          "Procesos reducidos de días a horas (flujo agéntico de cobros de clientes, Power Query, informes ERP a medida); controles antifraude en cuentas por pagar."
-        ]
-      },
       "humanise": {
         "title": "Subcontralor",
         "company": "Humanise Collective",
-        "dates": "mayo 2025 – mayo 2026",
+        "dates": "mayo 2025 – presente",
         "bullets": [
           "Mano derecha de la dirección financiera en la supervisión de operaciones para un grupo multi-entidad de 8 agencias de comunicaciones de marketing; producción de resultados financieros mensuales consolidados y explicación de variaciones presupuestarias.",
           "Automatización de informes y mejora de herramientas de gestión mediante el uso avanzado de PowerQuery y Google Scripts/Macros.",

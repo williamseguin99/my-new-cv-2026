@@ -336,11 +336,11 @@ const ROLE_URLS: Record<string, string> = {
 };
 
 const ROLE_KEYS = [
-  "alan_allman",
   "humanise",
   "signe_local",
   "belvoir",
   "renovco",
+  "elections_canada",
 ] as const;
 
 const SCHOOL_KEYS = ["sherbrooke", "hec", "uc3m", "jean_giono"] as const;
